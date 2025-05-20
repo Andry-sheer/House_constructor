@@ -1,0 +1,116 @@
+
+/* Mobile */
+
+.house {
+  position: relative;
+  height: 270px;
+  width: 100%;
+  box-shadow: 0 0 10px black;
+  line-height: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.base {
+  z-index: 10;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wall {
+  z-index: 20;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.angles {
+  z-index: 30;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.corner {
+  z-index: 40;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.front {
+  z-index: 100;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+// .house {
+//   position: relative;
+//   height: 800px;
+//   flex: 1 1 50%;
+//   box-shadow: 0 0 10px black;
+//   line-height: 10px;
+//   border-radius: 8px;
+//   overflow: hidden;
+// }
+
+// .base {
+//   z-index: 10;
+//   position: absolute;
+//   inset: 0;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+// .wall {
+//   z-index: 20;
+//   position: absolute;
+//   inset: 0;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+// .angles {
+//   z-index: 30;
+//   position: absolute;
+//   inset: 0;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+// .corner {
+//   z-index: 40;
+//   position: absolute;
+//   inset: 0;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+// .front {
+//   z-index: 100;
+//   position: absolute;
+//   inset: 0;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }

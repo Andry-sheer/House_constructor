@@ -1,0 +1,97 @@
+
+/* Mobile */
+
+.tabs {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.tab {
+  border-radius: 4px;
+  background: transparent;
+  border: none;
+  padding: 15px 0;
+  color: #212121;
+  font-weight: 500;
+  transition: all .6s ease;
+  cursor: pointer;
+  filter: brightness(.90);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .11);
+  overflow: hidden;
+
+  &:hover {
+    filter: brightness(1.03) contrast(1.03);
+  }
+
+  &:nth-child(1) {
+    background: url("/buttonsBg/antick.jpg") center/cover;
+  }
+
+  &:nth-child(2) {
+    background: url("/buttonsBg/singletone.jpg") center/cover;
+  }
+
+  &:nth-child(3) {
+    background: url("/buttonsBg/marble.jpg") center/cover;
+  }
+
+  &:nth-child(4) {
+    background: url("/buttonsBg/bricks.png") center;
+  }
+}
+
+.activeTab {
+  margin: 5px 0;
+  font-weight: 700;
+  color: #212121;
+  filter: brightness(1.03) contrast(1.03);
+}
+
+
+
+// .tabs {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   gap: 2px;
+// }
+
+// .tab {
+//   background: transparent;
+//   border: none;
+//   padding: 20px 30px;
+//   color: #212121;
+//   font-weight: 500;
+//   transition: all .6s ease;
+//   cursor: pointer;
+//   filter: brightness(.90);
+//   box-shadow: 0 0 0 1px rgba(0, 0, 0, .11);
+//   overflow: hidden;
+
+//   &:hover {
+//     filter: brightness(1.03) contrast(1.03);
+//   }
+
+//   &:nth-child(1) {
+//     background: url("/buttonsBg/antick.jpg") center/cover;
+//   }
+
+//   &:nth-child(2) {
+//     background: url("/buttonsBg/singletone.jpg") center/cover;
+//   }
+
+//   &:nth-child(3) {
+//     background: url("/buttonsBg/marble.jpg") center/cover;
+//   }
+
+//   &:nth-child(4) {
+//     background: url("/buttonsBg/brick.png") center/cover;
+//   }
+// }
+
+// .activeTab {
+  
+//   filter: brightness(1.03) contrast(1.03);
+// }
