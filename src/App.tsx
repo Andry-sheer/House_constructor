@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import 'normalize.css';
 import styles from './styles/App.module.scss'
 import { House } from './components/House/House';
@@ -19,7 +20,8 @@ export const App =()=> {
     corner: '/basement/layers-singletone/b-singletone2.png'
   }
 
-  const [layers, setLayers] = useState<LayerConfig>(defaultLayers)
+  // eslint-disable-next-line no-unused-vars
+  const [layers] = useState<LayerConfig>(defaultLayers)
   const [activeLayer, setActiveLayer] = useState<'wall' | 'angles' | 'corner'>('wall');
   console.log(activeLayer);
   
