@@ -4,9 +4,8 @@ import { AnticArray } from "../../constants/antique";
 import { klinkerArray } from "../../constants/klinker";
 import { marbleArray } from "../../constants/marble";
 import { SingleTonArray } from "../../constants/singleton";
-import styles from "../../styles/Control.module.scss";
 import type { TypeMaterial } from "../../constants/typeMaterial";
-import { Button } from "../Button/Button";
+import styles from "../../styles/Control.module.scss";
 
 export type layersType = "wall" | "angles" | "corner";
 
@@ -33,23 +32,35 @@ export const Control = ({ activeLayer, setActiveLayer }: ActiveLayer) => {
   return (
     <div className={styles.controlPanel}>
       <div className={styles.layerSelector}>
-        <Button
-          text={`СТІНИ: {tab}: {№7} || #1`}
-          className={`${styles.selectForm} ${activeLayer === "wall" ? styles.activeForm : ""}`}
+        <div
+          className={`${styles.selectLayer} ${activeLayer === 'wall' ? styles.activeLayer : ""}`}
           onClick={() => setActiveLayer("wall")}
-        />
+        >
+          <div className={styles.checkBox}>
+            {activeLayer === 'wall' && <span className={styles.checkBoxChecked}></span>}
+          </div>
+          {`СТІНИ: ОДНОТОН: №16`}
+        </div>
 
-        <Button
-          text={`КУТИ: {tab}: {№7} || #1`}
-          className={`${styles.selectForm} ${activeLayer === "angles" ? styles.activeForm : ""}`}
+        <div
+          className={`${styles.selectLayer} ${activeLayer === 'angles' ? styles.activeLayer : ""}`}
           onClick={() => setActiveLayer("angles")}
-        />
+        >
+          <div className={styles.checkBox}>
+            {activeLayer === 'angles' && <span className={styles.checkBoxChecked}></span>}
+          </div>
+          {`КУТИ: КЛІНКЕР: №7`}
+        </div>
 
-        <Button
-          text={`ЦОКОЛЬ: {tab}: {№7} || #1`}
-          className={`${styles.selectForm} ${activeLayer === "corner" ? styles.activeForm : ""}`}
+        <div
+          className={`${styles.selectLayer} ${activeLayer === 'corner' ? styles.activeLayer : ""}`}
           onClick={() => setActiveLayer("corner")}
-        />
+        >
+          <div className={styles.checkBox}>
+            {activeLayer === 'corner' && <span className={styles.checkBoxChecked}></span>}
+          </div>
+          {`ЦОКОЛЬ: АНТИК: №24`}
+        </div>
 
       </div>
 

@@ -19,7 +19,7 @@ export const House = ({ layers }: HouseProps) => {
     <div className={styles.house}>
       <img className={styles.base} src={base} alt="house" />
       <img className={styles.wall} src={layers.wall} alt="walls" />
-      <img className={styles.angles} src={layers.angles} alt="angles" />
+      <img className={`${styles.angles}`} src={layers.angles} alt="angles" />
       <img className={styles.corner} src={layers.corner} alt="corner" />
       <img className={styles.front} src={front} alt="front" />
     </div>

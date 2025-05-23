@@ -4,6 +4,7 @@ import styles from './styles/App.module.scss'
 import { House } from './components/House/House';
 import { Control } from './components/Control/Control';
 import { useState } from 'react';
+import { Button } from './components/Button/Button';
 
 type LayerConfig = {
   wall: string
@@ -20,7 +21,7 @@ export const App =()=> {
     corner: '/basement/layers-singletone/b-singletone2.png'
   }
 
-  // eslint-disable-next-line no-unused-vars
+  // const [layers, setLayers] = useState<LayerConfig>(defaultLayers)
   const [layers] = useState<LayerConfig>(defaultLayers)
   const [activeLayer, setActiveLayer] = useState<'wall' | 'angles' | 'corner'>('wall');
   console.log(activeLayer);
@@ -31,7 +32,15 @@ export const App =()=> {
       <div className={styles.container}>
         <div className={styles.containerInner}>
           <House layers={layers} />
+
+        <div className={styles.subContainer}>
           <Control activeLayer={activeLayer} setActiveLayer={setActiveLayer} />
+          <Button 
+            className={styles.btnOpenForm}
+            text='відправити заявку'
+            onClick={()=> console.log("click submit")}
+          />
+          </div>
         </div>
       </div>
     </div>

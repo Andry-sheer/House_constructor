@@ -12,6 +12,7 @@
   border-radius: 4px;
   background: transparent;
   border: none;
+  width: 100%;
   padding: 15px 0;
   color: #212121;
   font-weight: 500;
@@ -49,6 +50,46 @@
   filter: brightness(1.03) contrast(1.03);
 }
 
+
+
+
+/* TABLET */
+
+@media (min-width: 768px) {
+  .tabs {
+    flex-flow: row;
+    align-items: center;
+  }
+
+  .activeTab {
+    margin: 0;
+  }
+}
+
+
+
+
+/* TABLET HD */
+
+@media (min-width: 1024px) {
+  .tabs {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    gap: 5px;
+  }
+}
+
+
+
+/* PC 1280+ */
+
+@media (min-width: 1280px) {
+  .tabs {
+    flex-flow: row;
+    align-items: center;
+  }
+}
 
 
 // .tabs {
