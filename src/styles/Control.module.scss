@@ -26,6 +26,7 @@
   cursor: pointer;
   overflow: hidden;
   border-radius: 4px;
+  position: relative;
 }
 
 .materialBg {
@@ -76,6 +77,22 @@
   border-radius: 4px;
   background: #2bcc62;
   display: block;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(180%);
 }
 
 /* TABLET ========================================================================= */

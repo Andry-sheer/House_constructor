@@ -104,6 +104,7 @@
     display: block;
     padding: 15px 20px;
     font-size: 20px;
+    border: none;
     text-transform: uppercase;
     border: solid 2px #fe9c07;
     color: #fe9c07;
@@ -112,9 +113,15 @@
     border-radius: 8px;
     transition: linear 0.5s;
     letter-spacing: 1px;
+    cursor: pointer;
+
+    &:hover {
+      background: #fe9c07;
+      color: white;
+    }
 
     &:active {
-      background: #fe9c07;
+      background: #b36d05;
       color: white;
     }
   }

@@ -41,8 +41,6 @@ export const App =()=> {
               onClick={()=> console.log("click submit")}
             />
         </div>
-          
-
 
           <Button
             className={styles.btnOpenFormMobile}
