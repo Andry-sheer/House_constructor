@@ -1,5 +1,4 @@
-
-/* Mobile */
+/* Mobile ==========================================================================  */
 
 .tabs {
   display: flex;
@@ -16,10 +15,10 @@
   padding: 15px 0;
   color: #212121;
   font-weight: 500;
-  transition: all .6s ease;
+  transition: all 0.6s ease;
   cursor: pointer;
-  filter: brightness(.90);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, .11);
+  filter: brightness(0.9);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.11);
   overflow: hidden;
 
   &:hover {
@@ -50,10 +49,7 @@
   filter: brightness(1.03) contrast(1.03);
 }
 
-
-
-
-/* TABLET */
+/* TABLET ==========================================================================  */
 
 @media (min-width: 768px) {
   .tabs {
@@ -66,10 +62,7 @@
   }
 }
 
-
-
-
-/* TABLET HD */
+/* TABLET HD ==========================================================================  */
 
 @media (min-width: 1024px) {
   .tabs {
@@ -78,61 +71,21 @@
     justify-content: space-between;
     gap: 5px;
   }
+
+  .tab {
+    font-size: 14px;
+  }
 }
 
-
-
-/* PC 1280+ */
+/* PC 1280+ ==========================================================================  */
 
 @media (min-width: 1280px) {
   .tabs {
     flex-flow: row;
     align-items: center;
   }
+
+  .tab {
+    font-size: 16px;
+  }
 }
-
-
-// .tabs {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   gap: 2px;
-// }
-
-// .tab {
-//   background: transparent;
-//   border: none;
-//   padding: 20px 30px;
-//   color: #212121;
-//   font-weight: 500;
-//   transition: all .6s ease;
-//   cursor: pointer;
-//   filter: brightness(.90);
-//   box-shadow: 0 0 0 1px rgba(0, 0, 0, .11);
-//   overflow: hidden;
-
-//   &:hover {
-//     filter: brightness(1.03) contrast(1.03);
-//   }
-
-//   &:nth-child(1) {
-//     background: url("/buttonsBg/antick.jpg") center/cover;
-//   }
-
-//   &:nth-child(2) {
-//     background: url("/buttonsBg/singletone.jpg") center/cover;
-//   }
-
-//   &:nth-child(3) {
-//     background: url("/buttonsBg/marble.jpg") center/cover;
-//   }
-
-//   &:nth-child(4) {
-//     background: url("/buttonsBg/brick.png") center/cover;
-//   }
-// }
-
-// .activeTab {
-  
-//   filter: brightness(1.03) contrast(1.03);
-// }

@@ -33,9 +33,19 @@ export const App =()=> {
         <div className={styles.containerInner}>
           <House layers={layers} />
 
+        <div className={styles.subContainer}>
           <Control activeLayer={activeLayer} setActiveLayer={setActiveLayer} />
-          <Button 
-            className={styles.btnOpenForm}
+            <Button
+              className={styles.btnOpenForm}
+              text='відправити заявку'
+              onClick={()=> console.log("click submit")}
+            />
+        </div>
+          
+
+
+          <Button
+            className={styles.btnOpenFormMobile}
             text='відправити заявку'
             onClick={()=> console.log("click submit")}
           />

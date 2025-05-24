@@ -1,4 +1,4 @@
-/* Mobile */
+/* Mobile =============================================================================== */
 
 .controlPanel {
   display: flex;
@@ -26,11 +26,6 @@
   cursor: pointer;
   overflow: hidden;
   border-radius: 4px;
-
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px #000;
-  }
 }
 
 .materialBg {
@@ -72,7 +67,7 @@
   height: 20px;
   border-radius: 8px;
   padding: 2px;
-  transition: linear .3s;
+  transition: linear 0.3s;
 }
 
 .checkBoxChecked {
@@ -83,10 +78,7 @@
   display: block;
 }
 
-
-
-
-/* TABLET */
+/* TABLET ========================================================================= */
 
 @media (min-width: 768px) {
   .controlPanel {
@@ -105,7 +97,7 @@
 
   .selectLayer {
     cursor: pointer;
-    transition: linear .3s;
+    transition: linear 0.3s;
     &:hover {
       color: #2bcc62;
 
@@ -116,10 +108,7 @@
   }
 }
 
-
-
-
-/* TABLET HD */
+/* TABLET HD ============================================================================= */
 
 @media (min-width: 1024px) {
   .controlPanel {
@@ -144,12 +133,13 @@
   }
 }
 
-/* PC 1280+ */
+/* PC 1280+ =============================================================================== */
 
 @media (min-width: 1280px) {
   .controlPanel {
     padding: 10px;
-    width: 100%;
+    max-width: 455px;
+    // height: 816px;
   }
 
   .colors {
@@ -158,67 +148,14 @@
   }
 
   .selectLayer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  background: transparent;
-  border-radius: 8px;
-  border: none;
-  color: #313131;
-  font-weight: 600;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .blockMaterial {
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px #000;
+    }
+  }
 }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .controlPanel {
-//   display: flex;
-//   flex-flow: column;
-//   padding: 10px;
-//   max-width: 550px;
-//   border-radius: 8px;
-//   box-shadow: 0 0 10px black;
-//   overflow: hidden;
-// }
-
-// .colors {
-//   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   padding: 10px;
-//   gap: 10px;
-//   background: white;
-//   border-bottom-left-radius: 6px;
-//   border-bottom-right-radius: 6px;
-// }
-
-// .blockMaterial {
-//   line-height: 10px;
-//   transition: all .3s ease;
-//   cursor: pointer;
-//   overflow: hidden;
-//   border-radius: 4px;
-
-//   &:hover {
-//     transform: scale(1.1);
-//     box-shadow: 0 0 10px #000;
-//   }
-// }
-
-// .materialBg {
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-// }

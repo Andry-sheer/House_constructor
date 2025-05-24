@@ -1,19 +1,18 @@
-@use './fonts';
+@use "./fonts";
 
-/* Mobile */
+/* Mobile ==========================================================================  */
 
 .HouseConstructor {
-  background: white;
+  background: #ffffff;
   font-weight: 400;
   font-size: 16px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
 }
 
 .container {
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 5px;
-  
 }
 
 .containerInner {
@@ -24,7 +23,7 @@
   padding: 10px 0 20px;
 }
 
-.btnOpenForm {
+.btnOpenFormMobile {
   margin: 20px 0;
   padding: 15px 20px;
   font-size: 20px;
@@ -34,7 +33,7 @@
   font-weight: 600;
   background: transparent;
   border-radius: 8px;
-  transition: linear .5s;
+  transition: linear 0.5s;
   letter-spacing: 1px;
 
   &:active {
@@ -43,12 +42,14 @@
   }
 }
 
+.btnOpenForm {
+  display: none;
+}
 
-
-/* TABLET */
+/* TABLET ==========================================================================  */
 
 @media (min-width: 768px) {
-  .btnOpenForm {
+  .btnOpenFormMobile {
     cursor: pointer;
     &:hover {
       background: #fe9c07;
@@ -57,19 +58,16 @@
   }
 }
 
-
-
-/* TABLET HD */
+/* TABLET HD ========================================================================== */
 
 @media (min-width: 1024px) {
   .containerInner {
     display: flex;
     flex-flow: row;
-    align-items:flex-start;
+    align-items: flex-start;
   }
 
-  .btnOpenForm {
-    margin: 20px 0;
+  .btnOpenFormMobile {
     padding: 15px 20px;
     font-size: 16px;
     position: absolute;
@@ -79,61 +77,45 @@
   }
 }
 
-
-
-/* PC 1280+ */
+/* PC 1280+ ==================================================================== */
 
 @media (min-width: 1280px) {
   .containerInner {
     display: flex;
     flex-flow: row;
-    align-items:flex-start;
+    align-items: flex-start;
     justify-content: center;
     gap: 16px;
   }
 
-    .btnOpenForm {
-    margin: 10px 0;
+  .btnOpenFormMobile {
+    display: none;
+  }
+
+  .subContainer {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .btnOpenForm {
+    display: block;
     padding: 15px 20px;
-    font-size: 16px;
-    right: 10px;
-    left: auto;
-    bottom: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    border: solid 2px #fe9c07;
+    color: #fe9c07;
+    font-weight: 600;
+    background: transparent;
+    border-radius: 8px;
+    transition: linear 0.5s;
+    letter-spacing: 1px;
+
+    &:active {
+      background: #fe9c07;
+      color: white;
+    }
   }
 }
-
-
-
-// .HouseConstructor {
-//   background: white;
-//   font-weight: 400;
-//   font-size: 16px;
-//   font-family: 'Montserrat';
-// }
-
-// .container {
-//   max-width: 1920px;
-//   margin: 0 auto;
-//   padding: 0 30px;
-//   min-height: 100vh;
-// }
-
-// .containerInner {
-//   display: flex;
-//   gap: 16px;
-//   justify-content: center;
-//   align-items: flex-start;
-//   padding: 30px 0;
-// }
-
-// @media (min-width: 375px) {
-//   .container {
-//     padding: 0 5px;
-//   }
-
-//   .containerInner {
-//     flex-flow: column;
-//     align-items: center;
-//     padding: 5px 0;
-//   }
-// }
