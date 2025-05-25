@@ -32,22 +32,17 @@ export const Control = ({ activeLayer, setActiveLayer }: ActiveLayer) => {
   };
 
   const [materials, setMaterials] = useState<TypeMaterial[]>(colorArray[tab]);
+  
 
-  // type TypeItem = {
-  //   isSelect: boolean
-  //   id: number
-  //   name: string
-  //   img: string
-  // }
-
-  // const handleClickColor = (item): TypeItem => {
-  //   if (item.isSelect === 'true')
-  //   console.log(`item: ${item.isSelect}`)
-  // }
-
-useEffect(() => {
-  setMaterials(colorArray[tab].map(item => ({ ...item, isSelect: false })));
-}, [tab]);
+const [selectedMaterials, setSelectedMaterials] = useState<{
+  wall: TypeMaterial | null;
+  angles: TypeMaterial | null;
+  corner: TypeMaterial | null;
+}>({
+  wall: null,
+  angles: null,
+  corner: null,
+});
 
 
 const handleClickColor = (clickedItem: TypeMaterial) => {
@@ -55,9 +50,16 @@ const handleClickColor = (clickedItem: TypeMaterial) => {
     item.id === clickedItem.id ? { ...item, isSelect: true } : { ...item, isSelect: false } 
   );
   setMaterials(updatedMaterials);
+
+    setSelectedMaterials(prev => ({
+    ...prev,
+    [activeLayer]: clickedItem
+  }));
 };
 
-
+useEffect(() => {
+  setMaterials(colorArray[tab].map(item => ({ ...item, isSelect: false })));
+}, [tab]);
 
 
   return (
@@ -70,7 +72,7 @@ const handleClickColor = (clickedItem: TypeMaterial) => {
           <div className={styles.checkBox}>
             {activeLayer === 'wall' && <span className={styles.checkBoxChecked}></span>}
           </div>
-          {`СТІНИ: ОДНОТОН: №16`}
+          {`СТІНИ: ${selectedMaterials.wall ? `${selectedMaterials.wall.name}${selectedMaterials.wall.id}` : "не вибрано"}`}
         </div>
 
         <div
@@ -80,7 +82,7 @@ const handleClickColor = (clickedItem: TypeMaterial) => {
           <div className={styles.checkBox}>
             {activeLayer === 'angles' && <span className={styles.checkBoxChecked}></span>}
           </div>
-          {`КУТИ: КЛІНКЕР: №7`}
+          {`КУТИ: ${selectedMaterials.angles ? `${selectedMaterials.angles.name}${selectedMaterials.angles.id}` : "не вибрано"}`}
         </div>
 
         <div
@@ -90,7 +92,7 @@ const handleClickColor = (clickedItem: TypeMaterial) => {
           <div className={styles.checkBox}>
             {activeLayer === 'corner' && <span className={styles.checkBoxChecked}></span>}
           </div>
-          {`ЦОКОЛЬ: АНТИК: №24`}
+          {`ЦОКОЛЬ: ${selectedMaterials.corner ? `${selectedMaterials.corner.name}${selectedMaterials.corner.id}` : "не вибрано"}`}
         </div>
 
       </div>
