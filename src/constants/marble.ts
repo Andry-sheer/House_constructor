@@ -1,4 +1,3 @@
-
 import type { TypeMaterial } from "./typeMaterial";
 
 const name: string = "МАРМУР №";
@@ -142,5 +141,5 @@ export const marbleArray: TypeMaterial[] = [
     name: name,
     isSelect: false,
     img: "/bgMaterials/marble/u67394.jpg",
-  }
+  },
 ];

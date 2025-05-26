@@ -1,8 +1,6 @@
-
 export type MaterialTab = "antique" | "singleton" | "marble" | "klinker";
 
 export type MaterialId = number;
-
 
 export const filterMap: Record<MaterialTab, Record<MaterialId, string>> = {
   antique: {

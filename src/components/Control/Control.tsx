@@ -9,11 +9,10 @@ import { AnticArray } from "../../constants/antique";
 import { klinkerArray } from "../../constants/klinker";
 import { marbleArray } from "../../constants/marble";
 import { SingleTonArray } from "../../constants/singleton";
-import checkedMaterial from '/icons/selected.png';
+import checkedMaterial from "/icons/selected.png";
 import styles from "../../styles/Control.module.scss";
 
 export type layersType = "wall" | "angles" | "corner";
-
 
 type ControlProps = {
   activeLayer: layersType;
@@ -23,22 +22,27 @@ type ControlProps = {
   layerFilters: LayerFilterConfig;
   setLayerFilters: React.Dispatch<React.SetStateAction<LayerFilterConfig>>;
   selectTab: TypeSelectTab;
-  setSelectTab: (selectTab: TypeSelectTab)=> void
+  setSelectTab: (selectTab: TypeSelectTab) => void;
 };
 
-export const Control = ({ activeLayer, setSelectTab,  setActiveLayer, setLayerFilters }: ControlProps ) => {
+export const Control = ({
+  activeLayer,
+  setSelectTab,
+  setActiveLayer,
+  setLayerFilters,
+}: ControlProps) => {
   const [tab, setTab] = useState<
     "antique" | "singleton" | "marble" | "klinker"
   >("antique");
 
-  if (tab === 'antique') {
-    setSelectTab('antique')
-  } else if (tab === 'klinker') {
-    setSelectTab('klinker')
-  } else if (tab === 'marble') {
-    setSelectTab('marble')
+  if (tab === "antique") {
+    setSelectTab("antique");
+  } else if (tab === "klinker") {
+    setSelectTab("klinker");
+  } else if (tab === "marble") {
+    setSelectTab("marble");
   } else {
-    setSelectTab('singleton')
+    setSelectTab("singleton");
   }
 
   const colorArray: Record<
@@ -51,99 +55,129 @@ export const Control = ({ activeLayer, setSelectTab,  setActiveLayer, setLayerFi
     klinker: klinkerArray,
   };
 
-const [materials, setMaterials] = useState<TypeMaterial[]>(colorArray[tab]);
+  const [materials, setMaterials] = useState<TypeMaterial[]>(colorArray[tab]);
 
-const [selectedMaterials, setSelectedMaterials] = useState<{
-  wall: TypeMaterial | null;
-  angles: TypeMaterial | null;
-  corner: TypeMaterial | null;
-}>({
-  wall: null,
-  angles: null,
-  corner: null,
-});
+  const [selectedMaterials, setSelectedMaterials] = useState<{
+    wall: TypeMaterial | null;
+    angles: TypeMaterial | null;
+    corner: TypeMaterial | null;
+  }>({
+    wall: null,
+    angles: null,
+    corner: null,
+  });
 
-const getFilterClass = (tab: MaterialTab, id: number): string => {
-  return filterMap[tab][id] || '';
-};
+  const getFilterClass = (tab: MaterialTab, id: number): string => {
+    return filterMap[tab][id] || "";
+  };
 
+  const handleClickColor = (clickedItem: TypeMaterial) => {
+    const updatedMaterials = materials.map((item) =>
+      item.id === clickedItem.id
+        ? { ...item, isSelect: true }
+        : { ...item, isSelect: false }
+    );
+    setMaterials(updatedMaterials);
 
-const handleClickColor = (clickedItem: TypeMaterial) => {
-  const updatedMaterials = materials.map(item =>
-    item.id === clickedItem.id ? { ...item, isSelect: true } : { ...item, isSelect: false } 
-  );
-  setMaterials(updatedMaterials);
+    setSelectedMaterials((prev) => ({
+      ...prev,
+      [activeLayer]: clickedItem,
+    }));
 
-    setSelectedMaterials(prev => ({
-    ...prev,
-    [activeLayer]: clickedItem
-  }));
+    const filterClassName = getFilterClass(tab, clickedItem.id);
 
-  const filterClassName = getFilterClass(tab, clickedItem.id);
+    setLayerFilters((prev) => ({
+      ...prev,
+      [activeLayer]: filterClassName,
+    }));
+  };
 
-    setLayerFilters(prev => ({
-    ...prev,
-    [activeLayer]: filterClassName
-  }))
-};
-
-useEffect(() => {
-  setMaterials(colorArray[tab].map(item => ({ ...item, isSelect: false })));
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [tab]);
-
+  useEffect(() => {
+    setMaterials(colorArray[tab].map((item) => ({ ...item, isSelect: false })));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tab]);
 
   return (
     <div className={styles.controlPanel}>
       <div className={styles.layerSelector}>
         <div
-          className={`${styles.selectLayer} ${activeLayer === 'wall' ? styles.activeLayer : ""}`}
+          className={`${styles.selectLayer} ${
+            activeLayer === "wall" ? styles.activeLayer : ""
+          }`}
           onClick={() => setActiveLayer("wall")}
         >
           <div className={styles.checkBox}>
-            {activeLayer === 'wall' && <span className={styles.checkBoxChecked}></span>}
+            {activeLayer === "wall" && (
+              <span className={styles.checkBoxChecked}></span>
+            )}
           </div>
-          {`СТІНИ: ${selectedMaterials.wall ? `${selectedMaterials.wall.name}${selectedMaterials.wall.id}` : "не вибрано"}`}
+          {`СТІНИ: ${
+            selectedMaterials.wall
+              ? `${selectedMaterials.wall.name}${selectedMaterials.wall.id}`
+              : "не вибрано"
+          }`}
         </div>
 
         <div
-          className={`${styles.selectLayer} ${activeLayer === 'angles' ? styles.activeLayer : ""}`}
+          className={`${styles.selectLayer} ${
+            activeLayer === "angles" ? styles.activeLayer : ""
+          }`}
           onClick={() => setActiveLayer("angles")}
         >
           <div className={styles.checkBox}>
-            {activeLayer === 'angles' && <span className={styles.checkBoxChecked}></span>}
+            {activeLayer === "angles" && (
+              <span className={styles.checkBoxChecked}></span>
+            )}
           </div>
-          {`КУТИ: ${selectedMaterials.angles ? `${selectedMaterials.angles.name}${selectedMaterials.angles.id}` : "не вибрано"}`}
+          {`КУТИ: ${
+            selectedMaterials.angles
+              ? `${selectedMaterials.angles.name}${selectedMaterials.angles.id}`
+              : "не вибрано"
+          }`}
         </div>
 
         <div
-          className={`${styles.selectLayer} ${activeLayer === 'corner' ? styles.activeLayer : ""}`}
+          className={`${styles.selectLayer} ${
+            activeLayer === "corner" ? styles.activeLayer : ""
+          }`}
           onClick={() => setActiveLayer("corner")}
         >
           <div className={styles.checkBox}>
-            {activeLayer === 'corner' && <span className={styles.checkBoxChecked}></span>}
+            {activeLayer === "corner" && (
+              <span className={styles.checkBoxChecked}></span>
+            )}
           </div>
-          {`ЦОКОЛЬ: ${selectedMaterials.corner ? `${selectedMaterials.corner.name}${selectedMaterials.corner.id}` : "не вибрано"}`}
+          {`ЦОКОЛЬ: ${
+            selectedMaterials.corner
+              ? `${selectedMaterials.corner.name}${selectedMaterials.corner.id}`
+              : "не вибрано"
+          }`}
         </div>
-
       </div>
 
       <Tabs tab={tab} setTab={setTab} />
 
       <div className={styles.colors}>
         {materials.map((item) => (
-          <div 
+          <div
             className={styles.blockMaterial}
             onClick={() => handleClickColor(item)}
-            key={item.id}>
+            key={item.id}
+          >
             <img
               className={styles.materialBg}
               src={item.img}
               alt={`${item.name} ${item.id}`}
             />
-              {item.isSelect && <div className={styles.iconWrapper}>
-                <img className={styles.icon} src={checkedMaterial} alt="selected" />
-              </div>}
+            {item.isSelect && (
+              <div className={styles.iconWrapper}>
+                <img
+                  className={styles.icon}
+                  src={checkedMaterial}
+                  alt="selected"
+                />
+              </div>
+            )}
           </div>
         ))}
       </div>

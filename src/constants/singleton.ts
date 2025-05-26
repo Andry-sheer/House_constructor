@@ -1,4 +1,3 @@
-
 import type { TypeMaterial } from "./typeMaterial";
 
 const name: string = "ОДНОТОН №";

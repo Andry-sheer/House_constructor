@@ -1,4 +1,3 @@
-
 import type { TypeMaterial } from "./typeMaterial";
 
 const name: string = "КЛІНКЕР №";
@@ -170,5 +169,5 @@ export const klinkerArray: TypeMaterial[] = [
     name: name,
     isSelect: false,
     img: "/bgMaterials/klincker/b_24.jpg",
-  }
+  },
 ];

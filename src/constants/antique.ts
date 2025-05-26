@@ -1,4 +1,3 @@
-
 import type { TypeMaterial } from "./typeMaterial";
 
 const name: string = "АНТИК №";
@@ -17,7 +16,7 @@ export const AnticArray: TypeMaterial[] = [
     isSelect: false,
     img: "bgMaterials/antique/u14003.jpg",
   },
-  
+
   {
     id: 3,
     name: name,
@@ -31,49 +30,49 @@ export const AnticArray: TypeMaterial[] = [
     isSelect: false,
     img: "bgMaterials/antique/u13643.jpg",
   },
-  
+
   {
     id: 5,
     name: name,
     isSelect: false,
     img: "bgMaterials/antique/u13983.jpg",
   },
-  
+
   {
     id: 6,
     name: name,
     isSelect: false,
     img: "bgMaterials/antique/u13963.jpg",
   },
-  
+
   {
     id: 7,
     name: name,
     isSelect: false,
     img: "bgMaterials/antique/u14043.jpg",
   },
-  
+
   {
     id: 8,
     name: name,
     isSelect: false,
     img: "bgMaterials/antique/u13603.jpg",
   },
-  
+
   {
     id: 9,
     name: name,
     isSelect: false,
     img: "bgMaterials/antique/u13623.jpg",
   },
-  
+
   {
     id: 10,
     name: name,
     isSelect: false,
     img: "bgMaterials/antique/u13663.jpg",
   },
-  
+
   {
     id: 11,
     name: name,
