@@ -1,7 +1,7 @@
 
 import type { TypeMaterial } from "./typeMaterial";
 
-const name: string = "Однотон: №";
+const name: string = "ОДНОТОН №";
 
 export const SingleTonArray: TypeMaterial[] = [
   {
@@ -85,7 +85,7 @@ export const SingleTonArray: TypeMaterial[] = [
     id: 12,
     name: name,
     isSelect: false,
-    img: "bgMaterials/singleton/u14672.jpg",
+    img: "bgMaterials/singleton/u14572.jpg",
   },
 
   {

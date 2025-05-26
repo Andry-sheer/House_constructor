@@ -1,25 +1,45 @@
 import { useEffect, useState } from "react";
+import type { LayerConfig, LayerFilterConfig } from "../../App";
+import type { TypeSelectTab } from "../../constants/layerPaths";
+import type { TypeMaterial } from "../../constants/typeMaterial";
+import type { MaterialTab } from "../../constants/filterMap";
+import { filterMap } from "../../constants/filterMap";
 import { Tabs } from "../Tabs/Tabs";
 import { AnticArray } from "../../constants/antique";
 import { klinkerArray } from "../../constants/klinker";
 import { marbleArray } from "../../constants/marble";
 import { SingleTonArray } from "../../constants/singleton";
-import type { TypeMaterial } from "../../constants/typeMaterial";
 import checkedMaterial from '/icons/selected.png';
 import styles from "../../styles/Control.module.scss";
 
 export type layersType = "wall" | "angles" | "corner";
 
-type ActiveLayer = {
-  activeLayer: string;
+
+type ControlProps = {
+  activeLayer: layersType;
   setActiveLayer: (activeLayer: layersType) => void;
+  layers: LayerConfig;
+  setLayers: React.Dispatch<React.SetStateAction<LayerConfig>>;
+  layerFilters: LayerFilterConfig;
+  setLayerFilters: React.Dispatch<React.SetStateAction<LayerFilterConfig>>;
+  selectTab: TypeSelectTab;
+  setSelectTab: (selectTab: TypeSelectTab)=> void
 };
 
-export const Control = ({ activeLayer, setActiveLayer }: ActiveLayer) => {
+export const Control = ({ activeLayer, setSelectTab,  setActiveLayer, setLayerFilters }: ControlProps ) => {
   const [tab, setTab] = useState<
     "antique" | "singleton" | "marble" | "klinker"
   >("antique");
 
+  if (tab === 'antique') {
+    setSelectTab('antique')
+  } else if (tab === 'klinker') {
+    setSelectTab('klinker')
+  } else if (tab === 'marble') {
+    setSelectTab('marble')
+  } else {
+    setSelectTab('singleton')
+  }
 
   const colorArray: Record<
     "antique" | "singleton" | "marble" | "klinker",
@@ -31,8 +51,7 @@ export const Control = ({ activeLayer, setActiveLayer }: ActiveLayer) => {
     klinker: klinkerArray,
   };
 
-  const [materials, setMaterials] = useState<TypeMaterial[]>(colorArray[tab]);
-  
+const [materials, setMaterials] = useState<TypeMaterial[]>(colorArray[tab]);
 
 const [selectedMaterials, setSelectedMaterials] = useState<{
   wall: TypeMaterial | null;
@@ -43,6 +62,10 @@ const [selectedMaterials, setSelectedMaterials] = useState<{
   angles: null,
   corner: null,
 });
+
+const getFilterClass = (tab: MaterialTab, id: number): string => {
+  return filterMap[tab][id] || '';
+};
 
 
 const handleClickColor = (clickedItem: TypeMaterial) => {
@@ -55,10 +78,18 @@ const handleClickColor = (clickedItem: TypeMaterial) => {
     ...prev,
     [activeLayer]: clickedItem
   }));
+
+  const filterClassName = getFilterClass(tab, clickedItem.id);
+
+    setLayerFilters(prev => ({
+    ...prev,
+    [activeLayer]: filterClassName
+  }))
 };
 
 useEffect(() => {
   setMaterials(colorArray[tab].map(item => ({ ...item, isSelect: false })));
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [tab]);
 
 
@@ -110,9 +141,9 @@ useEffect(() => {
               src={item.img}
               alt={`${item.name} ${item.id}`}
             />
-              {item.isSelect ? <div className={styles.iconWrapper}>
+              {item.isSelect && <div className={styles.iconWrapper}>
                 <img className={styles.icon} src={checkedMaterial} alt="selected" />
-              </div> : null}
+              </div>}
           </div>
         ))}
       </div>
