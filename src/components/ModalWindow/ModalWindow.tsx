@@ -14,7 +14,11 @@ type ModalProps = {
   };
 };
 
-export const ModalWindow = ({ openModal, setOpenModal, selectedMaterials }: ModalProps) => {
+export const ModalWindow = ({
+  openModal,
+  setOpenModal,
+  selectedMaterials,
+}: ModalProps) => {
   return (
     <div
       className={`${styles.modalOverlayWrapper} ${
@@ -34,8 +38,10 @@ export const ModalWindow = ({ openModal, setOpenModal, selectedMaterials }: Moda
           />
 
           <div className={styles.description}>
-            <p className={styles.title}>Я хочу отримати оцінку вартості для таких кольорів:</p>
-            
+            <p className={styles.title}>
+              Я хочу отримати оцінку вартості для таких кольорів:
+            </p>
+
             <p className={styles.title}>
               {`стіни: ${
                 selectedMaterials.wall

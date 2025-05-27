@@ -28,11 +28,13 @@ type ControlProps = {
     angles: TypeMaterial | null;
     corner: TypeMaterial | null;
   };
-  setSelectedMaterials: React.Dispatch<React.SetStateAction<{
-    wall: TypeMaterial | null;
-    angles: TypeMaterial | null;
-    corner: TypeMaterial | null;
-  }>>;
+  setSelectedMaterials: React.Dispatch<
+    React.SetStateAction<{
+      wall: TypeMaterial | null;
+      angles: TypeMaterial | null;
+      corner: TypeMaterial | null;
+    }>
+  >;
 };
 
 export const Control = ({
