@@ -3,11 +3,11 @@
 ---
 
 <div align="center">
-  <img src="/public/icons/vite-svgrepo-com.svg" width="50" height="50" alt="icon4" style="margin: 0 10px;" />
-  <img src="/public/icons/js-svgrepo-com.svg" width="50" height="50" alt="icon1" style="margin: 0 10px;" />
-  <img src="/public/icons/typescript-official-svgrepo-com.svg" width="50" height="50" alt="icon3" style="margin: 0 10px;" />
-  <img src="/public/icons/react-javascript-js-framework-facebook-svgrepo-com.svg" width="50" height="50" alt="icon2" style="margin: 0 10px;" />
-  <img src="/public/icons/scss-svgrepo-com.svg" width="50" height="50" alt="icon5" style="margin: 0 10px;" />
+  <img src="/public/icons/vite-svgrepo-com.svg" width="50" height="50" alt="icon4" style="margin: 0 50px;" />
+  <img src="/public/icons/js-svgrepo-com.svg" width="50" height="50" alt="icon1" style="margin: 0 50px;" />
+  <img src="/public/icons/typescript-official-svgrepo-com.svg" width="50" height="50" alt="icon3" style="margin: 0 50px;" />
+  <img src="/public/icons/react-javascript-js-framework-facebook-svgrepo-com.svg" width="50" height="50" alt="icon2" style="margin: 0 50px;" />
+  <img src="/public/icons/scss-svgrepo-com.svg" width="50" height="50" alt="icon5" style="margin: 0 50px;" />
 </div>
 
 
