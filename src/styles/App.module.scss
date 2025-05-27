@@ -24,7 +24,8 @@
   padding: 10px 0 20px;
 }
 
-.btnOpenFormMobile {
+.btnOpenFormMobile,
+.btnOpenFormMobileDisabled {
   margin: 20px 0;
   padding: 15px 20px;
   font-size: 20px;
@@ -43,7 +44,18 @@
   }
 }
 
-.btnOpenForm {
+.btnOpenFormMobileDisabled {
+  border: solid 2px silver;
+  color: silver;
+
+  &:active {
+    background: silver;
+    color: silver;
+    cursor: not-allowed;
+  }
+}
+
+.btnOpenForm, .btnOpenFormDisabled {
   display: none;
 }
 
@@ -72,7 +84,7 @@
     align-items: flex-start;
   }
 
-  .btnOpenFormMobile {
+  .btnOpenFormMobile, .btnOpenFormMobileDisabled {
     margin: 0;
     padding: 15px 20px;
     font-size: 16px;
@@ -98,7 +110,7 @@
     gap: 16px;
   }
 
-  .btnOpenFormMobile {
+  .btnOpenFormMobile, .btnOpenFormMobileDisabled {
     display: none;
   }
 

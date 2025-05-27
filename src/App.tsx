@@ -100,11 +100,13 @@ export const App = () => {
           </div>
 
           <Button
-            className={styles.btnOpenFormMobile}
-            text="відправити заявку"
-            onClick={
-              isValid ? () => setOpenModal(true) : () => setOpenModal(false)
-            }
+            className={
+                isValid ? styles.btnOpenFormMobile : styles.btnOpenFormMobileDisabled
+              }
+              text="відправити заявку"
+              onClick={
+                isValid ? () => setOpenModal(true) : () => setOpenModal(false)
+              }
           />
         </div>
       </div>
