@@ -2,7 +2,7 @@
 
 ---
 
-<div align="center" style="display: flex; justify-content: space-around; gap: 10px;">
+<div align="center" style="display: flex; justify-content: space-between; gap: 10px;">
   <img src="/public/icons/vite-svgrepo-com.svg" width="50" height="50" alt="icon4" />
   <img src="/public/icons/js-svgrepo-com.svg" width="50" height="50" alt="icon1" />
   <img src="/public/icons/typescript-official-svgrepo-com.svg" width="50" height="50" alt="icon3" />
