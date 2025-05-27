@@ -3,17 +3,17 @@
 ---
 
 <div align="center">
-  <img src="/icons/vite-svgrepo-com.svg" width="50" height="50" alt="icon4" />
-  <img src="/icons/js-svgrepo-com.svg" width="50" height="50" alt="icon1" />
-  <img src="/icons/typescript-official-svgrepo-com.svg" width="50" height="50" alt="icon3" />
-  <img src="/icons/react-javascript-js-framework-facebook-svgrepo-com.svg" width="50" height="50" alt="icon2" />
-  <img src="/icons/scss-svgrepo-com.svg" width="50" height="50" alt="icon5" />
+  <img src="/public/icons/vite-svgrepo-com.svg" width="50" height="50" alt="icon4" />
+  <img src="/public/icons/js-svgrepo-com.svg" width="50" height="50" alt="icon1" />
+  <img src="/public/icons/typescript-official-svgrepo-com.svg" width="50" height="50" alt="icon3" />
+  <img src="/public/icons/react-javascript-js-framework-facebook-svgrepo-com.svg" width="50" height="50" alt="icon2" />
+  <img src="/public/icons/scss-svgrepo-com.svg" width="50" height="50" alt="icon5" />
 </div>
 
 ---
 
 <p align="center">
-  <img src="/icons/HouseSc.png" width="600" height="300" alt="project house preview" />
+  <img src="/public/icons/HouseSc.png" width="600" height="300" alt="project house preview" />
 </p>
 
 ---
