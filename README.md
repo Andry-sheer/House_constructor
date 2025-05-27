@@ -3,10 +3,10 @@
 ---
 
 <div align="center">
-  <img src="/public/icons/vite-svgrepo-com.svg" width="50" height="50" alt="icon4" />&nbsp;&nbsp;&nbsp;
-  <img src="/public/icons/js-svgrepo-com.svg" width="50" height="50" alt="icon1" />&nbsp;&nbsp;&nbsp;
-  <img src="/public/icons/typescript-official-svgrepo-com.svg" width="50" height="50" alt="icon3" />&nbsp;&nbsp;&nbsp;
-  <img src="/public/icons/react-javascript-js-framework-facebook-svgrepo-com.svg" width="50" height="50" alt="icon2" />&nbsp;&nbsp;&nbsp;
+  <img src="/public/icons/vite-svgrepo-com.svg" width="50" height="50" alt="icon4" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="/public/icons/js-svgrepo-com.svg" width="50" height="50" alt="icon1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="/public/icons/typescript-official-svgrepo-com.svg" width="50" height="50" alt="icon3" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="/public/icons/react-javascript-js-framework-facebook-svgrepo-com.svg" width="50" height="50" alt="icon2" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="/public/icons/scss-svgrepo-com.svg" width="50" height="50" alt="icon5" />
 </div>
 
