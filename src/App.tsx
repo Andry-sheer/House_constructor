@@ -51,12 +51,19 @@ export const App = () => {
     corner: null,
   });
 
+  const [isValid, setIsValid] = useState(false);
+
   useEffect(() => {
     setLayers((prev) => ({
       ...prev,
       [activeLayer]: layerPaths[selectTab][activeLayer],
     }));
   }, [selectTab, activeLayer]);
+
+  useEffect(() => {
+  const allSelected = selectedMaterials.wall && selectedMaterials.angles && selectedMaterials.corner;
+  setIsValid(!!allSelected);
+}, [selectedMaterials]);
 
   return (
     <div className={styles.HouseConstructor}>
@@ -79,16 +86,16 @@ export const App = () => {
             />
 
             <Button
-              className={styles.btnOpenForm}
+              className={isValid ? styles.btnOpenForm : styles.btnOpenFormDisabled}
               text="відправити заявку"
-              onClick={() => setOpenModal(true)}
+              onClick={isValid ? ()=> setOpenModal(true) : ()=> setOpenModal(false)}
             />
           </div>
 
           <Button
             className={styles.btnOpenFormMobile}
             text="відправити заявку"
-            onClick={() => setOpenModal(true)}
+            onClick={isValid ? ()=> setOpenModal(true) : ()=> setOpenModal(false)}
           />
         </div>
       </div>

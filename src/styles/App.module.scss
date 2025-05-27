@@ -110,7 +110,8 @@
     justify-content: space-between;
   }
 
-  .btnOpenForm {
+  .btnOpenForm,
+  .btnOpenFormDisabled {
     display: block;
     padding: 15px 0;
     font-size: 16px;
@@ -133,6 +134,22 @@
     &:active {
       background: #b36d05;
       color: white;
+    }
+  }
+
+  .btnOpenFormDisabled {
+    border: solid 2px silver;
+    color: silver;
+
+    &:hover {
+      background: transparent;
+      color: silver;
+      cursor: not-allowed;
+    }
+
+    &:active {
+      background: transparent;
+      color: silver;
     }
   }
 }
