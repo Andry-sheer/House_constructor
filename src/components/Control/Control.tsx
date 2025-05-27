@@ -23,6 +23,16 @@ type ControlProps = {
   setLayerFilters: React.Dispatch<React.SetStateAction<LayerFilterConfig>>;
   selectTab: TypeSelectTab;
   setSelectTab: (selectTab: TypeSelectTab) => void;
+  selectedMaterials: {
+    wall: TypeMaterial | null;
+    angles: TypeMaterial | null;
+    corner: TypeMaterial | null;
+  };
+  setSelectedMaterials: React.Dispatch<React.SetStateAction<{
+    wall: TypeMaterial | null;
+    angles: TypeMaterial | null;
+    corner: TypeMaterial | null;
+  }>>;
 };
 
 export const Control = ({
@@ -30,6 +40,8 @@ export const Control = ({
   setSelectTab,
   setActiveLayer,
   setLayerFilters,
+  selectedMaterials,
+  setSelectedMaterials,
 }: ControlProps) => {
   const [tab, setTab] = useState<
     "antique" | "singleton" | "marble" | "klinker"
@@ -56,16 +68,6 @@ export const Control = ({
   };
 
   const [materials, setMaterials] = useState<TypeMaterial[]>(colorArray[tab]);
-
-  const [selectedMaterials, setSelectedMaterials] = useState<{
-    wall: TypeMaterial | null;
-    angles: TypeMaterial | null;
-    corner: TypeMaterial | null;
-  }>({
-    wall: null,
-    angles: null,
-    corner: null,
-  });
 
   const getFilterClass = (tab: MaterialTab, id: number): string => {
     return filterMap[tab][id] || "";

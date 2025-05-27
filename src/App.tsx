@@ -5,6 +5,8 @@ import { Control } from "./components/Control/Control";
 import { useEffect, useState } from "react";
 import { Button } from "./components/Button/Button";
 import { layerPaths } from "./constants/layerPaths";
+import { ModalWindow } from "./components/ModalWindow/ModalWindow";
+import type { TypeMaterial } from "./constants/typeMaterial";
 
 const defaultLayers: LayerConfig = {
   wall: "/walls/layers-antique/w-antick.png",
@@ -25,6 +27,7 @@ export type LayerFilterConfig = {
 };
 
 export const App = () => {
+  const [openModal, setOpenModal] = useState(false);
   const [layers, setLayers] = useState<LayerConfig>(defaultLayers);
   const [activeLayer, setActiveLayer] = useState<"wall" | "angles" | "corner">(
     "wall"
@@ -36,6 +39,16 @@ export const App = () => {
     wall: "",
     angles: "",
     corner: "",
+  });
+
+  const [selectedMaterials, setSelectedMaterials] = useState<{
+    wall: TypeMaterial | null;
+    angles: TypeMaterial | null;
+    corner: TypeMaterial | null;
+  }>({
+    wall: null,
+    angles: null,
+    corner: null,
   });
 
   useEffect(() => {
@@ -61,22 +74,30 @@ export const App = () => {
               setLayerFilters={setLayerFilters}
               selectTab={selectTab}
               setSelectTab={setSelectTab}
+              selectedMaterials={selectedMaterials}
+              setSelectedMaterials={setSelectedMaterials}
             />
 
             <Button
               className={styles.btnOpenForm}
               text="відправити заявку"
-              onClick={() => console.log("click submit")}
+              onClick={() => setOpenModal(true)}
             />
           </div>
 
           <Button
             className={styles.btnOpenFormMobile}
             text="відправити заявку"
-            onClick={() => console.log("click submit")}
+            onClick={() => setOpenModal(true)}
           />
         </div>
       </div>
+
+      <ModalWindow
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        selectedMaterials={selectedMaterials}
+      />
     </div>
   );
 };
