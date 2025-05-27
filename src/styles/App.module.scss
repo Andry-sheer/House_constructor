@@ -7,6 +7,7 @@
   font-weight: 400;
   font-size: 16px;
   font-family: "Montserrat";
+  position: relative;
 }
 
 .container {
@@ -61,6 +62,10 @@
 /* TABLET HD ========================================================================== */
 
 @media (min-width: 1024px) {
+  .container {
+    padding-bottom: 60px;
+  }
+
   .containerInner {
     display: flex;
     flex-flow: row;
@@ -68,10 +73,11 @@
   }
 
   .btnOpenFormMobile {
+    margin: 0;
     padding: 15px 20px;
     font-size: 16px;
     position: absolute;
-    bottom: 30px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -80,6 +86,10 @@
 /* PC 1280+ ==================================================================== */
 
 @media (min-width: 1280px) {
+  .container {
+    padding-bottom: 0;
+  }
+
   .containerInner {
     display: flex;
     flex-flow: row;
@@ -102,13 +112,13 @@
 
   .btnOpenForm {
     display: block;
-    padding: 15px 20px;
-    font-size: 20px;
+    padding: 10px 0;
+    font-size: 16px;
     border: none;
     text-transform: uppercase;
     border: solid 2px #fe9c07;
     color: #fe9c07;
-    font-weight: 600;
+    font-weight: 700;
     background: transparent;
     border-radius: 8px;
     transition: linear 0.5s;

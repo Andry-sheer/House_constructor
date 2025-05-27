@@ -44,6 +44,14 @@
 
 @media (min-width: 768px) {
   .house {
+    max-width: 950px;
+  }
+}
+
+/* pc =================================================================== */
+
+@media (min-width: 1660px) {
+  .house {
     max-width: 1200px;
   }
 }
