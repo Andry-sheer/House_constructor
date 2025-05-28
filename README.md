@@ -3,11 +3,13 @@
 ---
 
 <div align="center">
-  <img src="/public/icons/vite-svgrepo-com.svg" width="50" height="50" alt="icon4" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="/public/icons/js-svgrepo-com.svg" width="50" height="50" alt="icon1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="/public/icons/typescript-official-svgrepo-com.svg" width="50" height="50" alt="icon3" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="/public/icons/react-javascript-js-framework-facebook-svgrepo-com.svg" width="50" height="50" alt="icon2" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="/public/icons/scss-svgrepo-com.svg" width="50" height="50" alt="icon5" />
+  <img src="https://www.svgrepo.com/show/374167/vite.svg" width="50" height="50" alt="icon4" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://www.svgrepo.com/show/452045/js.svg" width="50" height="50" alt="icon1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://www.svgrepo.com/show/374146/typescript-official.svg" width="50" height="50" alt="icon3" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://www.svgrepo.com/show/452092/react.svg" width="50" height="50" alt="icon2" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://www.svgrepo.com/show/373929/node.svg" width="50" height="50" alt="icon2" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://www.svgrepo.com/show/354310/sass.svg" width="50" height="50" alt="icon2" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://www.svgrepo.com/show/439240/npm.svg" width="50" height="50" alt="icon5" />
 </div>
 
 ---
