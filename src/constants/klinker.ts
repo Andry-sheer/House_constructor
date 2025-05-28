@@ -1,6 +1,6 @@
-import type { TypeMaterial } from "./typeMaterial";
+import type { TypeMaterial } from "./types";
 
-const name: string = "КЛІНКЕР №";
+const name: string = "КЛІНКЕР";
 
 export const klinkerArray: TypeMaterial[] = [
   {

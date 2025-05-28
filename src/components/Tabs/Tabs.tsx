@@ -1,11 +1,10 @@
+import type { MaterialTab } from "../../constants/types";
 import { Button } from "../Button/Button";
 import styles from "../../styles/Tabs.module.scss";
 
-export type TabType = "antique" | "singleton" | "marble" | "klinker";
-
 type TypeTabs = {
   tab: string;
-  setTab: (tab: TabType) => void;
+  setTab: (tab: MaterialTab) => void;
 };
 
 export const Tabs = ({ tab, setTab }: TypeTabs) => {

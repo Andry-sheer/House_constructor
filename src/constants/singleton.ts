@@ -1,6 +1,6 @@
-import type { TypeMaterial } from "./typeMaterial";
+import type { TypeMaterial } from "./types";
 
-const name: string = "ОДНОТОН №";
+const name: string = "ОДНОТОН";
 
 export const SingleTonArray: TypeMaterial[] = [
   {

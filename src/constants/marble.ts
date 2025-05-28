@@ -1,6 +1,6 @@
-import type { TypeMaterial } from "./typeMaterial";
+import type { TypeMaterial } from "./types";
 
-const name: string = "МАРМУР №";
+const name: string = "МАРМУР";
 
 export const marbleArray: TypeMaterial[] = [
   {

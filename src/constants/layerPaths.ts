@@ -1,7 +1,8 @@
-export type TypeSelectTab = "antique" | "singleton" | "marble" | "klinker";
+
+import type { MaterialTab } from "./types";
 
 export const layerPaths: Record<
-  TypeSelectTab,
+  MaterialTab,
   Record<"wall" | "angles" | "corner", string>
 > = {
   antique: {

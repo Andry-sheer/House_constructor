@@ -1,6 +1,6 @@
-export type MaterialTab = "antique" | "singleton" | "marble" | "klinker";
+import type { MaterialTab } from "./types";
 
-export type MaterialId = number;
+type MaterialId = number;
 
 export const filterMap: Record<MaterialTab, Record<MaterialId, string>> = {
   antique: {

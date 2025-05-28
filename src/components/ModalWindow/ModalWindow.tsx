@@ -1,8 +1,8 @@
-import styles from "../../styles/ModalWindow.module.scss";
 import { Button } from "../Button/Button";
 import { VscChromeClose } from "react-icons/vsc";
 import { IconComponent } from "../IconComponent/IconComponent";
-import type { TypeMaterial } from "../../constants/typeMaterial";
+import type { TypeMaterial } from "../../constants/types";
+import styles from "../../styles/ModalWindow.module.scss";
 
 type ModalProps = {
   openModal: boolean;
@@ -19,6 +19,7 @@ export const ModalWindow = ({
   setOpenModal,
   selectedMaterials,
 }: ModalProps) => {
+  
   return (
     <div
       className={`${styles.modalOverlayWrapper} ${
@@ -45,21 +46,21 @@ export const ModalWindow = ({
             <p className={styles.title}>
               {`стіни: ${
                 selectedMaterials.wall
-                  ? `${selectedMaterials.wall.name} №${selectedMaterials.wall.id}`
+                  ? `${selectedMaterials.wall.name}: №${selectedMaterials.wall.id}`
                   : "не вибрано"
               }`}
             </p>
             <p className={styles.title}>
               {`кути: ${
                 selectedMaterials.angles
-                  ? `${selectedMaterials.angles.name} №${selectedMaterials.angles.id}`
+                  ? `${selectedMaterials.angles.name}: №${selectedMaterials.angles.id}`
                   : "не вибрано"
               }`}
             </p>
             <p className={styles.title}>
               {`цоколь: ${
                 selectedMaterials.corner
-                  ? `${selectedMaterials.corner.name} №${selectedMaterials.corner.id}`
+                  ? `${selectedMaterials.corner.name}: №${selectedMaterials.corner.id}`
                   : "не вибрано"
               }`}
             </p>
