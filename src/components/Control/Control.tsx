@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import type { LayerFilterConfig, MaterialTab, LayerType, TypeMaterial } from "../../constants/types";
-import type { TypeSelectTab } from "../../constants/layerPaths";
 import { filterMap } from "../../constants/filterMap";
 import { Tabs } from "../Tabs/Tabs";
 import { AnticArray } from "../../constants/antique";
@@ -15,8 +14,8 @@ type ControlProps = {
   setActiveLayer: (activeLayer: LayerType) => void;
   layerFilters: LayerFilterConfig;
   setLayerFilters: React.Dispatch<React.SetStateAction<LayerFilterConfig>>;
-  selectTab: TypeSelectTab;
-  setSelectTab: (selectTab: TypeSelectTab) => void;
+  selectTab: MaterialTab;
+  setSelectTab: (selectTab: MaterialTab) => void;
   selectedMaterials: Record<LayerType, TypeMaterial | null>;
   setSelectedMaterials: React.Dispatch<React.SetStateAction<Record<LayerType, TypeMaterial | null>>>;
   layerVariants: Record<LayerType, number>;

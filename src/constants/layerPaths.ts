@@ -26,5 +26,3 @@ export const layerPaths: Record<
     corner: "/basement/layers-marble/b-marble.png",
   },
 };
-
-console.log(layerPaths);
