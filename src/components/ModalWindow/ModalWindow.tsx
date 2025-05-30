@@ -1,18 +1,8 @@
 import { Button } from "../Button/Button";
 import { VscChromeClose } from "react-icons/vsc";
 import { IconComponent } from "../IconComponent/IconComponent";
-import type { TypeMaterial } from "../../types/types";
+import type { ModalProps } from "../../types/types";
 import styles from "../../styles/ModalWindow.module.scss";
-
-type ModalProps = {
-  openModal: boolean;
-  setOpenModal: (open: boolean) => void;
-  selectedMaterials: {
-    wall: TypeMaterial | null;
-    angles: TypeMaterial | null;
-    corner: TypeMaterial | null;
-  };
-};
 
 export const ModalWindow = ({
   openModal,

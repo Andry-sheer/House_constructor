@@ -1,12 +1,4 @@
-import type { IconType } from "react-icons";
-
-type IconProps = {
-  icon: IconType;
-  size?: string | number;
-  className?: string;
-  color?: string;
-  fill?: string;
-};
+import type { IconProps } from "../../types/types";
 
 export const IconComponent = ({
   icon: Icon,

@@ -1,11 +1,6 @@
-import type { MaterialTab } from "../../types/types";
+import type { TypeTabs } from "../../types/types";
 import { Button } from "../Button/Button";
 import styles from "../../styles/Tabs.module.scss";
-
-type TypeTabs = {
-  tab: string;
-  setTab: (tab: MaterialTab) => void;
-};
 
 export const Tabs = ({ tab, setTab }: TypeTabs) => {
   return (

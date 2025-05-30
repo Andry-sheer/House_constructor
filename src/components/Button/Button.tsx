@@ -1,13 +1,4 @@
-import type { ReactNode } from "react";
-
-type propsButton = {
-  text?: string;
-  type?: "submit" | "reset" | "button";
-  className: string;
-  disable?: boolean;
-  icon?: ReactNode;
-  onClick?: () => void;
-};
+import type { propsButton } from "../../types/types";
 
 export const Button = ({
   type = "button",

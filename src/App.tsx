@@ -8,21 +8,15 @@ import { ModalWindow } from "./components/ModalWindow/ModalWindow";
 import { getUpdatedLayer } from "./constants/layerUtils";
 import type {
   LayerType,
-  MaterialTab,
-  TypeMaterial,
   LayerFilterConfig,
   LayerConfig,
+  SelectedMaterialPerLayer,
 } from "./types/types";
 import { filterMap } from "./constants/filterMap";
 
-const layerTypes: LayerType[] = ["wall", "angles", "corner"];
-
-type SelectedMaterialPerLayer = {
-  selected: { tab: MaterialTab; material: TypeMaterial } | null;
-  activeTab: MaterialTab;
-};
 
 export const App = () => {
+  const layerTypes: LayerType[] = ["wall", "angles", "corner"];
   const [openModal, setOpenModal] = useState(false);
   const [activeLayer, setActiveLayer] = useState<LayerType>("wall");
 
