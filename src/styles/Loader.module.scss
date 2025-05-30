@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.711);
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.81);
   position: absolute;
   width: 100%;
   top: 0;
@@ -21,7 +21,6 @@
 
 .container {
   display: flex;
-  text-align: center;
   flex-flow: column;
   align-items: center;
   gap: 20px;
@@ -34,7 +33,6 @@
   border: 10px white dotted;
   border-radius: 50%;
   animation: spin 3s ease-in-out infinite;
-  z-index: 310;
 }
 
 @keyframes spin {
@@ -44,7 +42,6 @@
 }
 
 .title {
-  z-index: 310;
   font-size: 1rem;
   font-weight: 600;
   color: white;

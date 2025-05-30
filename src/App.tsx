@@ -14,14 +14,18 @@ import type {
   SelectedMaterialPerLayer,
 } from "./types/types";
 import { filterMap } from "./constants/filterMap";
+import { useDisableScroll } from "./hooks/useDisableScroll";
+import { useLoaderTimer } from "./hooks/useLoaderTimer";
 
 
 export const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showLoader, setShowLoader] = useState(true);
   const layerTypes: LayerType[] = ["wall", "angles", "corner"];
   const [openModal, setOpenModal] = useState(false);
   const [activeLayer, setActiveLayer] = useState<LayerType>("wall");
+  const [isValid, setIsValid] = useState(false);
+
+  const { isLoading, showLoader } = useLoaderTimer(1000, 1000);
+  useDisableScroll(isLoading);
 
   const [selectedMaterials, setSelectedMaterials] = useState<
     Record<LayerType, SelectedMaterialPerLayer>
@@ -55,20 +59,6 @@ export const App = () => {
     });
     return initial as LayerConfig;
   });
-
-  const [isValid, setIsValid] = useState(false);
-
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setIsLoading(false);
-    setTimeout(() => {
-      setShowLoader(false); 
-    }, 1000);
-  }, 1000);
-
-  return () => clearTimeout(timer);
-}, []);
-
 
   useEffect(() => {
     const selected = selectedMaterials[activeLayer].selected;
