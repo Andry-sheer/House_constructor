@@ -1,7 +1,7 @@
 import { Button } from "../Button/Button";
 import { VscChromeClose } from "react-icons/vsc";
 import { IconComponent } from "../IconComponent/IconComponent";
-import type { TypeMaterial } from "../../constants/types";
+import type { TypeMaterial } from "../../types/types";
 import styles from "../../styles/ModalWindow.module.scss";
 
 type ModalProps = {

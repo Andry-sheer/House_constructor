@@ -6,14 +6,33 @@ import { Control } from "./components/Control/Control";
 import { Button } from "./components/Button/Button";
 import { ModalWindow } from "./components/ModalWindow/ModalWindow";
 import { getUpdatedLayer } from "./constants/layerUtils";
-import type { LayerType, MaterialTab, LayerFilterConfig, LayerConfig, TypeMaterial } from "./constants/types";
+import type {
+  LayerType,
+  MaterialTab,
+  TypeMaterial,
+  LayerFilterConfig,
+  LayerConfig,
+} from "./types/types";
+import { filterMap } from "./constants/filterMap";
 
 const layerTypes: LayerType[] = ["wall", "angles", "corner"];
 
+type SelectedMaterialPerLayer = {
+  selected: { tab: MaterialTab; material: TypeMaterial } | null;
+  activeTab: MaterialTab;
+};
+
 export const App = () => {
   const [openModal, setOpenModal] = useState(false);
-  const [selectTab, setSelectTab] = useState<MaterialTab>("antique");
   const [activeLayer, setActiveLayer] = useState<LayerType>("wall");
+
+  const [selectedMaterials, setSelectedMaterials] = useState<
+    Record<LayerType, SelectedMaterialPerLayer>
+  >({
+    wall: { selected: null, activeTab: "antique" },
+    angles: { selected: null, activeTab: "antique" },
+    corner: { selected: null, activeTab: "antique" },
+  });
 
   const [layerVariants, setLayerVariants] = useState<Record<LayerType, number>>({
     wall: 1,
@@ -30,46 +49,56 @@ export const App = () => {
   const [layers, setLayers] = useState<LayerConfig>(() => {
     const initial: Partial<LayerConfig> = {};
     layerTypes.forEach(type => {
-      initial[type] = getUpdatedLayer("antique", {
-        wall: 1,
-        angles: 1,
-        corner: 1,
-      }, {
-        wall: "",
-        angles: "",
-        corner: "",
-      }, type);
+      initial[type] = getUpdatedLayer(
+        "antique",
+        { wall: 1, angles: 1, corner: 1 },
+        { wall: "", angles: "", corner: "" },
+        type
+      );
     });
     return initial as LayerConfig;
-  });
-
-  const [selectedMaterials, setSelectedMaterials] = useState<Record<LayerType, TypeMaterial | null>>({
-    wall: null,
-    angles: null,
-    corner: null,
   });
 
   const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
-    setLayerVariants(prev => ({
-      ...prev,
-      [activeLayer]: 1,
-    }));
-  }, [selectTab, activeLayer]);
+    const selected = selectedMaterials[activeLayer].selected;
+    if (!selected) return;
 
-  useEffect(() => {
-    const updatedPath = getUpdatedLayer(selectTab, layerVariants, layerFilters, activeLayer);
+    const { tab, material } = selected;
+    const filter = filterMap[tab][material.id] || "";
+
+    setLayerFilters(prev => ({
+      ...prev,
+      [activeLayer]: filter,
+    }));
+
+    const updatedPath = getUpdatedLayer(
+      tab,
+      layerVariants,
+      { ...layerFilters, [activeLayer]: filter },
+      activeLayer
+    );
+
     setLayers(prev => ({
       ...prev,
       [activeLayer]: updatedPath,
     }));
-  }, [selectTab, layerVariants, layerFilters, activeLayer]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedMaterials[activeLayer].selected, activeLayer, layerVariants]);
 
   useEffect(() => {
-    const allSelected = layerTypes.every(type => selectedMaterials[type]);
+    const allSelected = layerTypes.every(
+      type => selectedMaterials[type].selected !== null
+    );
     setIsValid(allSelected);
   }, [selectedMaterials]);
+
+  const getSelectedForModal = () => ({
+    wall: selectedMaterials.wall.selected?.material || null,
+    angles: selectedMaterials.angles.selected?.material || null,
+    corner: selectedMaterials.corner.selected?.material || null,
+  });
 
   return (
     <div className={styles.HouseConstructor}>
@@ -81,15 +110,12 @@ export const App = () => {
             <Control
               activeLayer={activeLayer}
               setActiveLayer={setActiveLayer}
-              layerFilters={layerFilters}
-              setLayerFilters={setLayerFilters}
-              selectTab={selectTab}
-              setSelectTab={setSelectTab}
               selectedMaterials={selectedMaterials}
               setSelectedMaterials={setSelectedMaterials}
               layerVariants={layerVariants}
               setLayerVariants={setLayerVariants}
             />
+
             <Button
               className={isValid ? styles.btnOpenForm : styles.btnOpenFormDisabled}
               text="відправити заявку"
@@ -110,7 +136,7 @@ export const App = () => {
       <ModalWindow
         openModal={openModal}
         setOpenModal={setOpenModal}
-        selectedMaterials={selectedMaterials}
+        selectedMaterials={getSelectedForModal()}
       />
     </div>
   );

@@ -1,4 +1,3 @@
-
 export type LayerType = "wall" | "angles" | "corner";
 
 export type MaterialTab = "antique" | "singleton" | "klinker" | "marble";

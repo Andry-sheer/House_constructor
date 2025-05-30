@@ -1,4 +1,4 @@
-import type { LayerConfig, LayerFilterConfig } from "../../constants/types";
+import type { LayerConfig, LayerFilterConfig } from "../../types/types";
 import styles from "../../styles/House.module.scss";
 import base from "/background/back.jpg";
 import front from "/background/front.png";
@@ -9,11 +9,12 @@ type HouseProps = {
   layerFilters: LayerFilterConfig;
 };
 
+// House.tsx
 export const House = ({ layers, layerFilters }: HouseProps) => {
   return (
     <div className={styles.house}>
       <img className={styles.base} src={base} alt="house background" />
-
+      
       <img
         className={`${styles.wall} ${filterStyles[layerFilters.wall] || ""}`}
         src={layers.wall}

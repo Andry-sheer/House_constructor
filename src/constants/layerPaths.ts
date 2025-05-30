@@ -1,5 +1,5 @@
 
-import type { MaterialTab } from "./types";
+import type { MaterialTab } from "../types/types";
 
 export const layerPaths: Record<
   MaterialTab,

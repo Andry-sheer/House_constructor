@@ -1,4 +1,4 @@
-import type { MaterialTab } from "../../constants/types";
+import type { MaterialTab } from "../../types/types";
 import { Button } from "../Button/Button";
 import styles from "../../styles/Tabs.module.scss";
 

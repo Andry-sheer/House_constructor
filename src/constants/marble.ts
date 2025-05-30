@@ -1,4 +1,4 @@
-import type { TypeMaterial } from "./types";
+import type { TypeMaterial } from "../types/types";
 
 const name: string = "МАРМУР";
 

@@ -1,4 +1,4 @@
-import type { LayerType, MaterialTab } from "./types";
+import type { LayerType, MaterialTab } from "../types/types";
 
 export const layerImageMap: Record<MaterialTab, Record<LayerType, Record<number, string>>> = {
   antique: {

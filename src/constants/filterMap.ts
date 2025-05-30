@@ -1,4 +1,4 @@
-import type { MaterialTab } from "./types";
+import type { MaterialTab } from "../types/types";
 
 type MaterialId = number;
 

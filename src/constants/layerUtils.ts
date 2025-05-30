@@ -1,4 +1,4 @@
-import type { LayerFilterConfig, LayerType, MaterialTab } from "./types";
+import type { LayerFilterConfig, LayerType, MaterialTab } from "../types/types";
 import { layerImageMap } from "./layerImageMap";
 
 export function getUpdatedLayer(
