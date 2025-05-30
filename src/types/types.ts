@@ -12,3 +12,8 @@ export type TypeMaterial = {
   id: number;
   isSelect?: boolean;
 };
+
+export type HouseProps = {
+  layers: LayerConfig;
+  layerFilters: LayerFilterConfig;
+};

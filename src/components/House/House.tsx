@@ -1,15 +1,10 @@
-import type { LayerConfig, LayerFilterConfig } from "../../types/types";
+import type { HouseProps } from "../../types/types";
 import styles from "../../styles/House.module.scss";
 import base from "/background/back.jpg";
 import front from "/background/front.png";
 import filterStyles from "../../styles/Filters.module.scss";
 
-type HouseProps = {
-  layers: LayerConfig;
-  layerFilters: LayerFilterConfig;
-};
 
-// House.tsx
 export const House = ({ layers, layerFilters }: HouseProps) => {
   return (
     <div className={styles.house}>

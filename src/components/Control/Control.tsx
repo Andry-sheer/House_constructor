@@ -1,4 +1,5 @@
 import type { LayerType, MaterialTab, TypeMaterial } from "../../types/types";
+import type { ControlProps } from "../../types/material";
 import { Tabs } from "../Tabs/Tabs";
 import { AnticArray } from "../../constants/antique";
 import { klinkerArray } from "../../constants/klinker";
@@ -6,22 +7,6 @@ import { marbleArray } from "../../constants/marble";
 import { SingleTonArray } from "../../constants/singleton";
 import checkedMaterial from "/icons/selected.png";
 import styles from "../../styles/Control.module.scss";
-
-type SelectedMaterialPerLayer = {
-  selected: { tab: MaterialTab; material: TypeMaterial } | null;
-  activeTab: MaterialTab;
-};
-
-type ControlProps = {
-  activeLayer: LayerType;
-  setActiveLayer: (activeLayer: LayerType) => void;
-  selectedMaterials: Record<LayerType, SelectedMaterialPerLayer>;
-  setSelectedMaterials: React.Dispatch<
-    React.SetStateAction<Record<LayerType, SelectedMaterialPerLayer>>
-  >;
-  layerVariants: Record<LayerType, number>;
-  setLayerVariants: React.Dispatch<React.SetStateAction<Record<LayerType, number>>>;
-};
 
 const materialMap: Record<MaterialTab, TypeMaterial[]> = {
   antique: AnticArray,
