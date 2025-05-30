@@ -1,0 +1,52 @@
+
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.711);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  text-align: center;
+  flex-flow: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  border: 10px white dotted;
+  border-radius: 50%;
+  animation: spin 3s ease-in-out infinite;
+  z-index: 310;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.title {
+  z-index: 310;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 3px;
+}

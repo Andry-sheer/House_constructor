@@ -6,6 +6,7 @@ import { Control } from "./components/Control/Control";
 import { Button } from "./components/Button/Button";
 import { ModalWindow } from "./components/ModalWindow/ModalWindow";
 import { getUpdatedLayer } from "./constants/layerUtils";
+import { Loader } from "./components/Loader/Loader";
 import type {
   LayerType,
   LayerFilterConfig,
@@ -16,6 +17,8 @@ import { filterMap } from "./constants/filterMap";
 
 
 export const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
   const layerTypes: LayerType[] = ["wall", "angles", "corner"];
   const [openModal, setOpenModal] = useState(false);
   const [activeLayer, setActiveLayer] = useState<LayerType>("wall");
@@ -54,6 +57,18 @@ export const App = () => {
   });
 
   const [isValid, setIsValid] = useState(false);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setIsLoading(false);
+    setTimeout(() => {
+      setShowLoader(false); 
+    }, 1000);
+  }, 1000);
+
+  return () => clearTimeout(timer);
+}, []);
+
 
   useEffect(() => {
     const selected = selectedMaterials[activeLayer].selected;
@@ -96,6 +111,7 @@ export const App = () => {
 
   return (
     <div className={styles.HouseConstructor}>
+      {showLoader && <Loader isVisible={isLoading} />}
       <div className={styles.container}>
         <div className={styles.containerInner}>
           <House layers={layers} layerFilters={layerFilters} />
@@ -125,13 +141,13 @@ export const App = () => {
             onClick={isValid ? () => setOpenModal(true) : undefined}
           />
         </div>
-      </div>
+      </div> 
 
       <ModalWindow
         openModal={openModal}
         setOpenModal={setOpenModal}
         selectedMaterials={getSelectedForModal()}
       />
-    </div>
+    </div> 
   );
 };
