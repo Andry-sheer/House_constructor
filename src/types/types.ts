@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 
 import type { IconType } from "react-icons";
 
+export type TypeText = "text" | "number" | "email" | "password" | "tel";
+
 export type LayerType = "wall" | "angles" | "corner";
 
 export type MaterialTab = "antique" | "singleton" | "klinker" | "marble";
@@ -60,4 +62,15 @@ export type TypeTabs = {
 export type SelectedMaterialPerLayer = {
   selected: { tab: MaterialTab; material: TypeMaterial } | null;
   activeTab: MaterialTab;
+};
+
+export type InputProps = {
+  id?: string;
+  type: TypeText;
+  value: string;
+  name?: string;
+  className: string
+  placeholder?: string;
+  disabled?: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };

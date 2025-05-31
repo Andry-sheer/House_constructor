@@ -3,6 +3,7 @@ import { VscChromeClose } from "react-icons/vsc";
 import { IconComponent } from "../IconComponent/IconComponent";
 import type { ModalProps } from "../../types/types";
 import styles from "../../styles/ModalWindow.module.scss";
+import { Form } from "../Form/Form";
 
 export const ModalWindow = ({
   openModal,
@@ -33,40 +34,42 @@ export const ModalWindow = ({
               Я хочу отримати оцінку вартості для таких кольорів:
             </p>
 
-            <p className={styles.title}>
-              {`стіни: ${
+            <div className={styles.labelWrapper}>
+              стіни:{" "}
+              <span className={styles.label}>{`${
                 selectedMaterials.wall
                   ? `${selectedMaterials.wall.name}: №${selectedMaterials.wall.id}`
                   : "не вибрано"
               }`}
-            </p>
-            <p className={styles.title}>
-              {`кути: ${
+              </span>
+            </div>
+
+            <div className={styles.labelWrapper}>
+              кути:{" "}
+              <span className={styles.label}>
+              {`${
                 selectedMaterials.angles
                   ? `${selectedMaterials.angles.name}: №${selectedMaterials.angles.id}`
                   : "не вибрано"
               }`}
-            </p>
-            <p className={styles.title}>
-              {`цоколь: ${
+              </span>
+            </div>
+            
+            <div className={styles.labelWrapper}>
+              цоколь:{" "}
+              <span className={styles.label}>
+              {`${
                 selectedMaterials.corner
                   ? `${selectedMaterials.corner.name}: №${selectedMaterials.corner.id}`
                   : "не вибрано"
               }`}
-            </p>
+              </span>
+            </div>
           </div>
 
           <span className={styles.divider}></span>
 
-          {/* <form>
-            <input type="text" />
-            <span className={styles.divider}></span>
-            <input type="text" />
-            <span className={styles.divider}></span>
-            <input type="text" />
-
-            <button type="submit">submit</button>
-          </form> */}
+          <Form />
         </div>
       </div>
     </div>
