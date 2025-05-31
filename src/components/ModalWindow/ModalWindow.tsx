@@ -54,7 +54,7 @@ export const ModalWindow = ({
               }`}
               </span>
             </div>
-            
+
             <div className={styles.labelWrapper}>
               цоколь:{" "}
               <span className={styles.label}>
@@ -69,7 +69,8 @@ export const ModalWindow = ({
 
           <span className={styles.divider}></span>
 
-          <Form />
+          <Form selectedMaterials={selectedMaterials} />
+
         </div>
       </div>
     </div>

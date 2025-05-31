@@ -91,6 +91,7 @@ export const App = () => {
       type => selectedMaterials[type].selected !== null
     );
     setIsValid(allSelected);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedMaterials]);
 
   const getSelectedForModal = () => ({

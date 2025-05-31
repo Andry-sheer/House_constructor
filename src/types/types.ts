@@ -74,3 +74,21 @@ export type InputProps = {
   disabled?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
+
+
+
+
+export type Material = {
+  id: number;
+  name: string;
+};
+
+export type SelectedMaterials = {
+  wall?: Material | null;
+  corner?: Material | null;
+  angles?: Material | null;
+};
+
+export type FormProps = {
+  selectedMaterials: SelectedMaterials;
+};
