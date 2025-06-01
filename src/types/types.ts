@@ -72,6 +72,7 @@ export type InputProps = {
   className: string
   placeholder?: string;
   disabled?: boolean;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>)=> void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 

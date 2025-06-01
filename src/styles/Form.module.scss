@@ -14,6 +14,7 @@
   background: #e6e6e6;
   padding: 10px;
   color: #212121;
+  transition: linear .3s;
 }
 
 .name:focus,
@@ -31,7 +32,40 @@
   {
   color: #5c5c5c;
   font-weight: 500;
+  transition: linear .3s;
 }
+
+.errorName, .errorPhone, .errorEmail {
+  border: 2px solid red;
+  color: red;
+
+  &::placeholder {
+    color: red;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .btnSubmit {
   padding: 10px 0;
