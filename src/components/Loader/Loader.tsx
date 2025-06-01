@@ -7,7 +7,7 @@ export const Loader = ({ isVisible }: { isVisible: boolean }) => {
     >
       <div className={styles.container}>
         <div className={styles.spinner}></div>
-        <p className={styles.title}>LOADING...</p>
+        <p className={styles.title}>Завантаження...</p>
       </div>
     </div>
   );

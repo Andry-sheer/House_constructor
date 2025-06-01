@@ -1,11 +1,11 @@
-import type { HouseProps } from "../../types/types";
+import type { HouseComponentProps } from "../../types/types";
 import styles from "../../styles/House.module.scss";
 import base from "/background/back.jpg";
 import front from "/background/front.png";
 import filterStyles from "../../styles/Filters.module.scss";
 
 
-export const House = ({ layers, layerFilters }: HouseProps) => {
+export const HouseComponent = ({ layers, layerFilters }: HouseComponentProps) => {
   return (
     <div className={styles.house}>
       <img className={styles.base} src={base} alt="house background" />

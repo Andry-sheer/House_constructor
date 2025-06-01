@@ -19,7 +19,7 @@ export type TypeMaterial = {
   isSelect?: boolean;
 };
 
-export type HouseProps = {
+export type HouseComponentProps = {
   layers: LayerConfig;
   layerFilters: LayerFilterConfig;
 };
@@ -33,7 +33,6 @@ export type propsButton = {
   onClick?: () => void;
 };
 
-
 export type IconProps = {
   icon: IconType;
   size?: string | number;
@@ -42,17 +41,17 @@ export type IconProps = {
   fill?: string;
 };
 
-
 export type ModalProps = {
   openModal: boolean;
+  resetHouse: () => void;
   setOpenModal: (open: boolean) => void;
+  setOpenResult: (open: boolean)=> void;
   selectedMaterials: {
     wall: TypeMaterial | null;
     angles: TypeMaterial | null;
     corner: TypeMaterial | null;
   };
 };
-
 
 export type TypeTabs = {
   tab: string;
@@ -69,15 +68,12 @@ export type InputProps = {
   type: TypeText;
   value: string;
   name?: string;
-  className: string
+  className: string;
   placeholder?: string;
   disabled?: boolean;
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>)=> void;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
-
-
-
 
 export type Material = {
   id: number;
@@ -93,4 +89,21 @@ export type SelectedMaterials = {
 export type FormProps = {
   selectedMaterials: SelectedMaterials;
   setOpenModal: (val: boolean) => void;
+  setOpenResult: (open: boolean)=> void;
+  resetHouse: ()=> void
 };
+
+export type ValidationParams = {
+  name: string;
+  phone: string;
+  email: string;
+  setErrorName: (val: boolean) => void;
+  setErrorPhone: (val: boolean) => void;
+  setErrorEmail: (val: boolean) => void;
+};
+
+
+export type ResultModalProps = {
+  openResult: boolean
+  setOpenResult: (open: boolean)=> void;
+}

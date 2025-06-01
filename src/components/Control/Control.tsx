@@ -73,11 +73,11 @@ export function Control({
                 {activeLayer === layer && <span className={styles.checkBoxChecked} />}
               </div>
               {layer === "wall" &&
-                `СТІНИ: ${selectedItemMaterial ? `${selectedItemMaterial.material.name}: №${selectedItemMaterial.material.id}` : "не вибрано"}`}
+                `СТІНИ: ${selectedItemMaterial ? `${selectedItemMaterial.material.name}: №${selectedItemMaterial.material.id}` : "не обрано"}`}
               {layer === "angles" &&
-                `КУТИ: ${selectedItemMaterial ? `${selectedItemMaterial.material.name}: №${selectedItemMaterial.material.id}` : "не вибрано"}`}
+                `КУТИ: ${selectedItemMaterial ? `${selectedItemMaterial.material.name}: №${selectedItemMaterial.material.id}` : "не обрано"}`}
               {layer === "corner" &&
-                `ЦОКОЛЬ: ${selectedItemMaterial ? `${selectedItemMaterial.material.name}: №${selectedItemMaterial.material.id}` : "не вибрано"}`}
+                `ЦОКОЛЬ: ${selectedItemMaterial ? `${selectedItemMaterial.material.name}: №${selectedItemMaterial.material.id}` : "не обрано"}`}
             </div>
           );
         })}

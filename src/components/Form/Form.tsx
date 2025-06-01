@@ -1,11 +1,12 @@
 import { useState, forwardRef, useImperativeHandle } from "react";
+import { useValidationForm } from "../../hooks/useValidationForm";
 import type { FormProps } from "../../types/types";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 import styles from "../../styles/Form.module.scss";
 
 
-export const Form = forwardRef(({ selectedMaterials, setOpenModal }: FormProps, ref) => {
+export const Form = forwardRef(({ selectedMaterials, resetHouse, setOpenResult, setOpenModal }: FormProps, ref) => {
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
@@ -13,7 +14,7 @@ export const Form = forwardRef(({ selectedMaterials, setOpenModal }: FormProps, 
     comment: "",
   });
 
-
+  const { validateForm } = useValidationForm();
   const [errorName, setErrorName] = useState(false);
   const [errorPhone, setErrorPhone] = useState(false);
   const [errorEmail, setErrorEmail] = useState(false);
@@ -55,40 +56,6 @@ export const Form = forwardRef(({ selectedMaterials, setOpenModal }: FormProps, 
     }
   }
 
-  const validForm = () => {
-    const namePattern = /^([A-Za-zА-Яа-яЁёЇїІіЄєҐґ]{3,20})(\s[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]{3,20})?$/u;
-    const phonePattern = /^(?:\+380|380|0)\d{9}$/;
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    const { name, phone, email } = formValues;
-
-    const trimmedPhone = phone.trim();
-    const trimmedName = name.trim();
-
-    if (!phonePattern.test(trimmedPhone) && !namePattern.test(trimmedName)) {
-      setErrorName(true);
-      setErrorPhone(true);
-      return false;
-    }
-
-    if (!namePattern.test(trimmedName)) {
-      setErrorName(true);
-      return false;
-    }
-
-    if (!phonePattern.test(trimmedPhone)) {
-      setErrorPhone(true);
-      return false;
-    }
-
-    if (email.trim() !== "" && !emailPattern.test(email.trim())) {
-      setErrorEmail(true);
-      return false;
-    }
-
-    return true;
-  };
-
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -121,9 +88,17 @@ export const Form = forwardRef(({ selectedMaterials, setOpenModal }: FormProps, 
       },
     };
 
-    if(!validForm()){
-      return
-    }
+  if (
+    !validateForm({
+      name: formValues.name,
+      phone: formValues.phone,
+      email: formValues.email,
+      setErrorName,
+      setErrorPhone,
+      setErrorEmail,
+    })
+  ) { return; }
+
 
     console.log("send data: ", formData); // <---- ЦЕ ОБЬ'ЄКТ З УСІМА ДАНИМИ ПРО ЮЗЕРА + КОЛЬОРИ ТА МАТЕРІАЛИ ЯКІ ВІН ОБРАВ.
 
@@ -135,6 +110,12 @@ export const Form = forwardRef(({ selectedMaterials, setOpenModal }: FormProps, 
     });
 
     setOpenModal(false);
+    resetHouse();
+
+    setTimeout(()=> {
+      setOpenResult(true)
+    }, 300)
+    
   };
 
 
@@ -154,7 +135,7 @@ export const Form = forwardRef(({ selectedMaterials, setOpenModal }: FormProps, 
         onChange={handleChange}
         value={formValues.name}
         onFocus={handleFocus}
-        placeholder={errorName ? "Ім'я обов'язкове!*" : "Ім'я"}
+        placeholder={errorName ? "Ім'я обов'язково!*" : "Ім'я"}
       />
 
       <Input
@@ -164,7 +145,7 @@ export const Form = forwardRef(({ selectedMaterials, setOpenModal }: FormProps, 
         onChange={handleChange}
         value={formValues.phone}
         onFocus={handleFocus}
-        placeholder={errorPhone ? "Телефон обов'язковий!*" : "Телефон"}
+        placeholder={errorPhone ? "Телефон обов'язково!*" : "Телефон"}
       />
 
       <Input

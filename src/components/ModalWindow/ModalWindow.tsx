@@ -9,8 +9,10 @@ import styles from "../../styles/ModalWindow.module.scss";
 export const ModalWindow = ({
   openModal,
   setOpenModal,
+  resetHouse,
+  setOpenResult,
   selectedMaterials,
-}: ModalProps) => {
+}: ModalProps ) => {
   const formRef = useRef<{ clearErrors: () => void }>(null);
 
   const handleCloseModal = () => {
@@ -78,7 +80,13 @@ export const ModalWindow = ({
 
           <span className={styles.divider}></span>
 
-          <Form ref={formRef} selectedMaterials={selectedMaterials} setOpenModal={setOpenModal} />
+          <Form 
+            ref={formRef} 
+            selectedMaterials={selectedMaterials} 
+            setOpenModal={setOpenModal} 
+            setOpenResult={setOpenResult}
+            resetHouse={resetHouse}
+          />
 
         </div>
       </div>

@@ -1,7 +1,8 @@
 import "normalize.css";
 import styles from "./styles/App.module.scss";
 import { useEffect, useState } from "react";
-import { House } from "./components/House/House";
+import { useResetHouse } from "./hooks/useResetHouse";
+import { HouseComponent } from "./components/HouseComponent/HouseComponent";
 import { Control } from "./components/Control/Control";
 import { Button } from "./components/Button/Button";
 import { ModalWindow } from "./components/ModalWindow/ModalWindow";
@@ -16,6 +17,7 @@ import type {
 import { filterMap } from "./constants/filterMap";
 import { useDisableScroll } from "./hooks/useDisableScroll";
 import { useLoaderTimer } from "./hooks/useLoaderTimer";
+import { ResultModal } from "./components/ResultModal/ResultModal";
 
 
 export const App = () => {
@@ -23,6 +25,7 @@ export const App = () => {
   const [openModal, setOpenModal] = useState(false);
   const [activeLayer, setActiveLayer] = useState<LayerType>("wall");
   const [isValid, setIsValid] = useState(false);
+  const [openResult, setOpenResult] = useState(false);
 
   const { isLoading, showLoader } = useLoaderTimer(1000, 1000);
   useDisableScroll(isLoading);
@@ -100,12 +103,19 @@ export const App = () => {
     corner: selectedMaterials.corner.selected?.material || null,
   });
 
+  const { resetHouse } = useResetHouse({
+    setSelectedMaterials,
+    setLayerVariants,
+    setLayerFilters,
+    setLayers,
+  });
+
   return (
     <div className={styles.HouseConstructor}>
       {showLoader && <Loader isVisible={isLoading} />}
       <div className={styles.container}>
         <div className={styles.containerInner}>
-          <House layers={layers} layerFilters={layerFilters} />
+          <HouseComponent layers={layers} layerFilters={layerFilters} />
 
           <div className={styles.subContainer}>
             <Control
@@ -137,8 +147,12 @@ export const App = () => {
       <ModalWindow
         openModal={openModal}
         setOpenModal={setOpenModal}
+        resetHouse={resetHouse}
+        setOpenResult={setOpenResult}
         selectedMaterials={getSelectedForModal()}
       />
+
+      <ResultModal openResult={openResult} setOpenResult={setOpenResult} />
     </div> 
   );
 };
