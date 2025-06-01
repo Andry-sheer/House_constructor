@@ -92,4 +92,5 @@ export type SelectedMaterials = {
 
 export type FormProps = {
   selectedMaterials: SelectedMaterials;
+  setOpenModal: (val: boolean) => void;
 };

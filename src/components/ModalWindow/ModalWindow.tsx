@@ -1,15 +1,24 @@
+import { useRef } from "react";
+import type { ModalProps } from "../../types/types";
 import { Button } from "../Button/Button";
 import { VscChromeClose } from "react-icons/vsc";
 import { IconComponent } from "../IconComponent/IconComponent";
-import type { ModalProps } from "../../types/types";
-import styles from "../../styles/ModalWindow.module.scss";
 import { Form } from "../Form/Form";
+import styles from "../../styles/ModalWindow.module.scss";
 
 export const ModalWindow = ({
   openModal,
   setOpenModal,
   selectedMaterials,
 }: ModalProps) => {
+  const formRef = useRef<{ clearErrors: () => void }>(null);
+
+  const handleCloseModal = () => {
+    setOpenModal(false)
+    setTimeout(()=> {
+      formRef?.current?.clearErrors();
+    }, 300)
+  }
   
   return (
     <div
@@ -19,13 +28,13 @@ export const ModalWindow = ({
     >
       <div
         className={styles.modalOverlay}
-        onClick={() => setOpenModal(false)}
+        onClick={handleCloseModal}
       />
       <div className={styles.modal}>
         <div className={styles.modalWrapper}>
           <Button
             className={styles.btnClose}
-            onClick={() => setOpenModal(false)}
+            onClick={handleCloseModal}
             icon={<IconComponent icon={VscChromeClose} fill="#212121" />}
           />
 
@@ -69,7 +78,7 @@ export const ModalWindow = ({
 
           <span className={styles.divider}></span>
 
-          <Form selectedMaterials={selectedMaterials} />
+          <Form ref={formRef} selectedMaterials={selectedMaterials} setOpenModal={setOpenModal} />
 
         </div>
       </div>

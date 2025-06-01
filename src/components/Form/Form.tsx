@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, forwardRef, useImperativeHandle } from "react";
 import type { FormProps } from "../../types/types";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 import styles from "../../styles/Form.module.scss";
 
 
-export const Form = ({ selectedMaterials }: FormProps) => {
+export const Form = forwardRef(({ selectedMaterials, setOpenModal }: FormProps, ref) => {
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
@@ -18,9 +18,25 @@ export const Form = ({ selectedMaterials }: FormProps) => {
   const [errorPhone, setErrorPhone] = useState(false);
   const [errorEmail, setErrorEmail] = useState(false);
 
+  useImperativeHandle(ref, ()=> ({
+    clearErrors
+  }));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    
+    if (name === "name") {
+      setErrorName(false);
+    }
+
+    if (name === "phone") {
+      setErrorPhone(false)
+    }
+
+    if (name === "email") {
+      setErrorEmail(false)
+    }
+
     setFormValues((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -74,8 +90,6 @@ export const Form = ({ selectedMaterials }: FormProps) => {
   };
 
 
-
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -112,6 +126,22 @@ export const Form = ({ selectedMaterials }: FormProps) => {
     }
 
     console.log("send data: ", formData); // <---- ЦЕ ОБЬ'ЄКТ З УСІМА ДАНИМИ ПРО ЮЗЕРА + КОЛЬОРИ ТА МАТЕРІАЛИ ЯКІ ВІН ОБРАВ.
+
+    setFormValues({
+      name: "",
+      email: "",
+      phone: "",
+      comment: "",
+    });
+
+    setOpenModal(false);
+  };
+
+
+  const clearErrors = () => {
+    setErrorName(false);
+    setErrorPhone(false);
+    setErrorEmail(false);
   };
 
 
@@ -163,4 +193,4 @@ export const Form = ({ selectedMaterials }: FormProps) => {
       />
     </form>
   );
-};
+});
