@@ -15,7 +15,7 @@
 ---
 
 <p align="center">
-  <img src="/public/icons/HouseSc.png" width="600" height="400" alt="project house preview" style="border-radius: 8px;" />
+  <img src="/assets/icons/HouseSc.png" width="600" height="400" alt="project house preview" style="border-radius: 8px;" />
 </p>
 
 ---
