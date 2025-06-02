@@ -5,7 +5,7 @@ import { AnticArray } from "../../constants/antique";
 import { klinkerArray } from "../../constants/klinker";
 import { marbleArray } from "../../constants/marble";
 import { SingleTonArray } from "../../constants/singleton";
-import checkedMaterial from "/icons/selected.png";
+import checkedMaterial from "assets/icons/selected.png";
 import styles from "../../styles/Control.module.scss";
 
 const materialMap: Record<MaterialTab, TypeMaterial[]> = {
