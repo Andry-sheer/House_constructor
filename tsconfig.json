@@ -1,4 +1,12 @@
 {
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "react-jsx",
+    "types": ["vite/client", "node"]
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

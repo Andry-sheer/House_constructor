@@ -1,7 +1,7 @@
 import type { HouseComponentProps } from "../../types/types";
 import styles from "../../styles/House.module.scss";
-import base from "assets/background/back.jpg";
-import front from "assets/background/front.png";
+import base from "/assets/images/background/back.jpg";
+import front from "/assets/images/background/front.png";
 import filterStyles from "../../styles/Filters.module.scss";
 
 

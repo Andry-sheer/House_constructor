@@ -6,23 +6,23 @@ export const layerPaths: Record<
   Record<"wall" | "angles" | "corner", string>
 > = {
   antique: {
-    wall: "/assets/walls/layers-antique/w-antick.png",
-    angles: "/assets/angles/layers-antique/c-antick.png",
-    corner: "/assets/basement/layers-antique/b-antick.png",
+    wall: "/assets/images/walls/layers-antique/w-antick.png",
+    angles: "/assets/images/angles/layers-antique/c-antick.png",
+    corner: "/assets/images/basement/layers-antique/b-antick.png",
   },
   singleton: {
-    wall: "/assets/walls/layers-singletone/w-singletone.png",
-    angles: "/assets/angles/layers-singletone/c-singletone.png",
-    corner: "/assets/basement/layers-singletone/b-singletone.png",
+    wall: "/assets/images/walls/layers-singletone/w-singletone.png",
+    angles: "/assets/images/angles/layers-singletone/c-singletone.png",
+    corner: "/assets/images/basement/layers-singletone/b-singletone.png",
   },
   klinker: {
-    wall: "/assets/walls/layers-klincker/w-brick.png",
-    angles: "/assets/angles/layers-klincker/c-brick.png",
-    corner: "/assets/basement/layers-klincker/b-brick.png",
+    wall: "/assets/images/walls/layers-klincker/w-brick.png",
+    angles: "/assets/images/angles/layers-klincker/c-brick.png",
+    corner: "/assets/images/basement/layers-klincker/b-brick.png",
   },
   marble: {
-    wall: "/assets/walls/layers-marble/w-marble.png",
-    angles: "/assets/angles/layers-marble/c-marble.png",
-    corner: "/assets/basement/layers-marble/b-marble.png",
+    wall: "/assets/images/walls/layers-marble/w-marble.png",
+    angles: "/assets/images/angles/layers-marble/c-marble.png",
+    corner: "/assets/images/basement/layers-marble/b-marble.png",
   },
 };
