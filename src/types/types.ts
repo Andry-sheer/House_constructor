@@ -30,7 +30,7 @@ export type propsButton = {
   className: string;
   disable?: boolean;
   icon?: ReactNode;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 export type IconProps = {

@@ -1,5 +1,4 @@
 import "normalize.css";
-import styles from "./styles/App.module.scss";
 import { useEffect, useState } from "react";
 import { useResetHouse } from "./hooks/useResetHouse";
 import { HouseComponent } from "./components/HouseComponent/HouseComponent";
@@ -18,6 +17,7 @@ import { filterMap } from "./constants/filterMap";
 import { useDisableScroll } from "./hooks/useDisableScroll";
 import { useLoaderTimer } from "./hooks/useLoaderTimer";
 import { ResultModal } from "./components/ResultModal/ResultModal";
+import styles from "./styles/App.module.scss";
 
 
 export const App = () => {
@@ -26,6 +26,7 @@ export const App = () => {
   const [activeLayer, setActiveLayer] = useState<LayerType>("wall");
   const [isValid, setIsValid] = useState(false);
   const [openResult, setOpenResult] = useState(false);
+  const [showHide, setShowHide] = useState(false);
 
   const { isLoading, showLoader } = useLoaderTimer(1000, 1000);
   useDisableScroll(isLoading);
@@ -96,6 +97,7 @@ export const App = () => {
     setIsValid(allSelected);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedMaterials]);
+  
 
   const getSelectedForModal = () => ({
     wall: selectedMaterials.wall.selected?.material || null,
@@ -113,7 +115,7 @@ export const App = () => {
   return (
     <div className={styles.HouseConstructor}>
       {showLoader && <Loader isVisible={isLoading} />}
-      <div className={styles.container}>
+      <div className={styles.container} onClick={() => setShowHide(false)}>
         <div className={styles.containerInner}>
           <HouseComponent layers={layers} layerFilters={layerFilters} />
 
@@ -130,8 +132,16 @@ export const App = () => {
             <Button
               className={isValid ? styles.btnOpenForm : styles.btnOpenFormDisabled}
               text="відправити заявку"
-              onClick={isValid ? () => setOpenModal(true) : undefined}
+              onClick={isValid ? () => setOpenModal(true) : (e)=> {
+                e.stopPropagation();
+                setShowHide(true)}
+              }
             />
+
+            <div className={showHide ? styles.hint : styles.hintHide }>
+              <p className={styles.hintTitle}>Щоб продовжити</p>
+              <p className={styles.hintTitle}>спочатку виберіть категорії та кольори!</p>
+            </div>
           </div>
 
           <Button
@@ -139,7 +149,10 @@ export const App = () => {
               isValid ? styles.btnOpenFormMobile : styles.btnOpenFormMobileDisabled
             }
             text="відправити заявку"
-            onClick={isValid ? () => setOpenModal(true) : undefined}
+            onClick={isValid ? () => setOpenModal(true) : (e)=> {
+              e.stopPropagation();
+              setShowHide(true)}
+            }
           />
         </div>
       </div> 
