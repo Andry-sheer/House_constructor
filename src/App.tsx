@@ -31,7 +31,7 @@ export const App = () => {
 
   const { isLoading, showLoader } = useLoaderTimer(1000, 1000);
   useDisableScroll(isLoading);
-  useResetTimer(showHide, setShowHide)
+  useResetTimer(showHide, setShowHide);
 
   const [selectedMaterials, setSelectedMaterials] = useState<
     Record<LayerType, SelectedMaterialPerLayer>

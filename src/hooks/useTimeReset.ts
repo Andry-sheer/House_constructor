@@ -10,5 +10,6 @@ export function useResetTimer(param: boolean,  setParam: (param: true | false) =
     }, 5000);
 
     return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [param]);
 }
