@@ -139,8 +139,8 @@ export const App = () => {
             />
 
             <div className={showHide ? styles.hint : styles.hintHide }>
-              <p className={styles.hintTitle}>Щоб продовжити</p>
-              <p className={styles.hintTitle}>спочатку виберіть категорії та кольори!</p>
+              <p className={styles.hintTitle}>Щоб продовжити далі</p>
+              <p className={styles.hintTitle}>спочатку оберіть категорії та кольори!</p>
             </div>
           </div>
 
