@@ -134,13 +134,12 @@ export const App = () => {
               text="відправити заявку"
               onClick={isValid ? () => setOpenModal(true) : (e)=> {
                 e.stopPropagation();
-                setShowHide(true)}
+                setShowHide(prev => !prev)}
               }
             />
 
             <div className={showHide ? styles.hint : styles.hintHide }>
-              <p className={styles.hintTitle}>Щоб продовжити далі</p>
-              <p className={styles.hintTitle}>спочатку оберіть категорії та кольори!</p>
+              <p className={styles.hintTitle}>Щоб продовжити далі спочатку оберіть категорії та кольори!</p>
             </div>
           </div>
 
@@ -151,7 +150,7 @@ export const App = () => {
             text="відправити заявку"
             onClick={isValid ? () => setOpenModal(true) : (e)=> {
               e.stopPropagation();
-              setShowHide(true)}
+              setShowHide(prev => !prev)}
             }
           />
         </div>
