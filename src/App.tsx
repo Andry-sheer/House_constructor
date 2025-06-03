@@ -17,6 +17,7 @@ import { filterMap } from "./constants/filterMap";
 import { useDisableScroll } from "./hooks/useDisableScroll";
 import { useLoaderTimer } from "./hooks/useLoaderTimer";
 import { ResultModal } from "./components/ResultModal/ResultModal";
+import { useResetTimer } from "./hooks/useTimeReset";
 import styles from "./styles/App.module.scss";
 
 
@@ -30,6 +31,7 @@ export const App = () => {
 
   const { isLoading, showLoader } = useLoaderTimer(1000, 1000);
   useDisableScroll(isLoading);
+  useResetTimer(showHide, setShowHide)
 
   const [selectedMaterials, setSelectedMaterials] = useState<
     Record<LayerType, SelectedMaterialPerLayer>
@@ -111,6 +113,8 @@ export const App = () => {
     setLayerFilters,
     setLayers,
   });
+
+
 
   return (
     <div className={styles.HouseConstructor}>
