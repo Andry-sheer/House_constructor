@@ -63,6 +63,17 @@ export type SelectedMaterialPerLayer = {
   activeTab: MaterialTab;
 };
 
+export type ControlProps = {
+  activeLayer: LayerType;
+  setActiveLayer: (activeLayer: LayerType) => void;
+  selectedMaterials: Record<LayerType, SelectedMaterialPerLayer>;
+  setSelectedMaterials: React.Dispatch<
+    React.SetStateAction<Record<LayerType, SelectedMaterialPerLayer>>
+  >;
+  layerVariants: Record<LayerType, number>;
+  setLayerVariants: React.Dispatch<React.SetStateAction<Record<LayerType, number>>>;
+};
+
 export type InputProps = {
   id?: string;
   type: TypeText;

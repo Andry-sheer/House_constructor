@@ -1,5 +1,5 @@
 import type { LayerType, MaterialTab, TypeMaterial } from "../../types/types";
-import type { ControlProps } from "../../types/material";
+import type { ControlProps } from "../../types/types";
 import { Tabs } from "../Tabs/Tabs";
 import { AnticArray } from "../../constants/antique";
 import { klinkerArray } from "../../constants/klinker";
