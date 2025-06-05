@@ -94,6 +94,7 @@ export function Control({
           >
             <img
               className={styles.materialBg}
+              loading="lazy"
               src={material.img}
               alt={`${material.name} ${material.id}`}
             />
