@@ -13,7 +13,7 @@
 .colors {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 15px 0 0 0;
+  margin-top: 16px;
   gap: 10px;
   background: white;
   border-bottom-left-radius: 6px;
@@ -129,12 +129,11 @@
 
 @media (min-width: 1024px) {
   .controlPanel {
-    padding: 5px;
-    max-width: 500px;
+    max-width: 550px;
   }
 
   .colors {
-    gap: 4px;
+    gap: 6px;
     grid-template-columns: repeat(5, 1fr);
   }
 

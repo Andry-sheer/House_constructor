@@ -48,6 +48,18 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .house {
+    height: 500px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .house {
+    height: auto;
+  }
+}
+
 /* pc =================================================================== */
 
 @media (min-width: 1660px) {

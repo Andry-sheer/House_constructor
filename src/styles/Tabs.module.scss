@@ -9,7 +9,8 @@
 
 .tab {
   border-radius: 4px;
-  background: transparent;
+  text-align: center;
+  outline: none;
   border: none;
   width: 100%;
   padding: 15px 0;
@@ -19,7 +20,7 @@
   cursor: pointer;
   filter: brightness(0.9);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.11);
-  overflow: hidden;
+  border: 1px solid transparent;
 
   &:hover {
     filter: brightness(1.03) contrast(1.03);
@@ -43,10 +44,11 @@
 }
 
 .activeTab {
+  outline: none;
   margin: 5px 0;
   font-weight: 700;
-  color: #212121;
   filter: brightness(1.03) contrast(1.03);
+  border: 1px solid  rgba(0, 0, 0, 0.2);
 }
 
 /* TABLET ==========================================================================  */
